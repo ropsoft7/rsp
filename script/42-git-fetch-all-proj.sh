@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 echo Fetching working projects
 
 git clone git@github.com:ropsoft7/rsp-arch.git
