@@ -5,7 +5,7 @@
 
   "scripts": {
     
-    "start": "./script/",
+    "start": "bash script/init.sh",
     "audit-scan": "./script/audit-scan.sh",
     "install-ngetty": "sudo ./script/install-ngetty.sh",
     "disable-coredumps": "./script/disable-coredumps.sh",

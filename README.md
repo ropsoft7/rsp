@@ -19,11 +19,11 @@ SCREENLOCKER ou timer off to logout
 
          OK - + Muda tema osh
          OK - 55 por enquanto usar o rspctl como está (e terminar implementação)
-         INDO - 2. remove oq n tiver sendo usado (pacotes)
-         INDO - 100. terminar rsp-workspace + alinhar/terminar projs subjacentes
+         OK - 2. remove oq n tiver sendo usado (pacotes)
+         OK - 100. terminar rsp-workspace + alinhar/terminar projs subjacentes
                  
-          - 84 - Trimar e renomear os temas para dos a costomizacao geral na next minor
-          - 10  criar o adduser wrapper
+          INDO - 84 - Trimar e renomear os temas para dos a costomizacao geral na next minor
+          INDO - 10  criar o adduser wrapper
         
          OK - 1. qterm padrao
          OK - passar para padrao os .desktops de rsp-config center para RSp Settings
@@ -36,6 +36,7 @@ SCREENLOCKER ou timer off to logout
          OK - 7. Voltar cursor breeze white
          OK - 5.  Usr share osh 
          OK - 9 Tuidm
+
 <todo-list>
 
 
