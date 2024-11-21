@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"name": ".config",
+			"path": "../../../../.config"
+		},
+		{
+			"name": "ozzy",
+			"path": "../../../.."
+		},
+		{
+			"name": "rsp",
+			"path": "."
+		}
+	],
+	"settings": {}
+}
