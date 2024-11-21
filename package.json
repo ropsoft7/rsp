@@ -2,34 +2,30 @@
   "name": "rsp",
   "version": "7.7.7",
   "description": "",
-
   "scripts": {
-    
-    "start": "bash script/init.sh",
+    "start": "bash start.js",
     "audit-scan": "./script/audit-scan.sh",
     "install-ngetty": "sudo ./script/install-ngetty.sh",
     "disable-coredumps": "./script/disable-coredumps.sh",
-
     "rsp-filesystem:setup": "script/rsp-filesystem-Setup.sh",
     "rsp-filesystem:setup-apt": "cd ./rsp-filesystem && npm run setup-apt",
     "rsp-filesystem:setup-lib": "cd ./rsp-filesystem && npm run setup-lib",
     "rsp-filesystem:setup-share": "cd ./rsp-filesystem && npm run setup-share",
-    
     "rsp-plymouth:setup": "script/rsp-plymouth-Setup.sh",
     "rsp-plymouth:setup-make": "cd ./rsp-plymouth && npm run setup-apt",
     "rsp-plymouth:setup-share": "cd ./rsp-plymouth && npm run setup-share",
     "rsp-plymouth:setup-install": "script/rsp-plymouth",
-    
     "@goto:rsp-filesystem": "cd ./rsp-filesystem; ls -a",
     "@open:rsp-filesystem": "code ./rsp-filesystem -n",
     "@sync:rsp-filesystem": "code ./rsp-filesystem -n",
-
     "@goto:rsp-plymouth": "cd ./rsp-plymouth; ls -a",
     "@open:rsp-plymouth": "code ./rsp-filesystem -n",
     "@sync:rsp-plymouth": "code ./rsp-filesystem -n"
-    
   },
-
+  "dependencies": {
+    "numeral": "^2.0.6",
+    "shelljs": "^0.8.5"
+  },
   "author": "@ropsoft",
   "license": "Apache-2.0"
 }
