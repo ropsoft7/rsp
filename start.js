@@ -8,18 +8,10 @@ const exec = shelljs.exec;
 const roodir = __dirname,
       scriptdir = path.join(roodir, 'script');
       
-console.log("Executing start.js")
-console.log("Before run index scripts:")
+console.log("Executing: rsp/start.js")
 
-exec(`
-    
-    ${scriptdir}/git-fetch-all-proj.sh;
-    
-    cd ${roodir}
-    cd rsp-fsystem
-    npm start
-
-`)
+exec(`${scriptdir}/git-fetch-all-proj.sh`);
+exec(`cd ${roodir}/rsp-fsystem && npm install && npm start`);
 
 fs.readdirSync(scriptdir).filter(file => {
     return numeral(file[0]).value() || numeral(file[0]).value() === 0;
@@ -27,10 +19,4 @@ fs.readdirSync(scriptdir).filter(file => {
     exec(`sh ${file}`)
 })
 
-console.log("After run index scripts:")
-
-exec(`
-    
-    ${}
-    
-`)
+console.log("Finished execution of: rsp/start.js")

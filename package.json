@@ -3,7 +3,7 @@
   "version": "7.7.7",
   "description": "",
   "scripts": {
-    "start": "bash start.js",
+    "start": "node start.js",
     "audit-scan": "./script/audit-scan.sh",
     "install-ngetty": "sudo ./script/install-ngetty.sh",
     "disable-coredumps": "./script/disable-coredumps.sh",
