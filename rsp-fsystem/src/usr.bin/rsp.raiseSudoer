@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Verifica se o nome de usuário foi passado como argumento
+if [ -z "$1" ]; then
+  echo "Uso: $0 nome_do_usuario"
+  exit 1
+fi
+
+USER=$1
+
+# Adiciona o usuário ao arquivo sudoers.d com a opção NOPASSWD
+echo "$USER ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/$USER > /dev/null
+
+# Configura as permissões corretas no arquivo
+sudo chmod 0440 /etc/sudoers.d/$USER
+
+echo "Usuário $USER agora pode usar sudo sem senha."
+

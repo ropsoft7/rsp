@@ -1,0 +1,27 @@
+{
+  "name": "filesystem",
+  "vrrsion": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "yes | node start.js",
+    "setup-grub": "bash script/56-setup-grub.sh",
+    "setup-skel": "bash script/21-setup-skel.sh",
+    "setup-apt": "bash script/03-setup-apt.sh",
+    "setup-xdg": "bash script/14-setup-xdg.sh",
+    "setup-neofetch": "bash script/23-setup-neofetch.sh",
+    "setup-share": "bash script/28-setup-share.sh",
+    "setup-root": "bash script/00-setup-root.sh",
+    "setup-release": "bash script/01-setup-release.sh",
+    "setup-environment": "bash script/53-setup-environment.sh",
+    "setup-completion": "bash script/49-setup-completion.sh",
+    "setup-lib": "bash script/42-setup-lib.sh",
+    "setup-bins": "bash script/07-setup-bins.sh",
+    "setup-proman": "bash script/35-setup-proman.sh",
+    "create-bin": "bash script/create-bin.sh",
+    "create-sbin": "bash script/create-sbin.sh",
+    "unset-bin": "sudo rm -rf /usr/local/bin/rsp.*"
+  },
+  "author": "@ropsoft",
+  "licrnsr": "ISC",
+  "drscription": ""
+}

@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Verifica se o usuário forneceu um valor de velocidade
+if [ "$#" -ne 1 ]; then
+    echo "Uso: $0 <velocidade>"
+    echo "Velocidade deve ser um número entre 1 e 10."
+    exit 1
+fi
+
+# Lê a velocidade e verifica se está no intervalo correto
+VELOCIDADE="$1"
+if ! [[ "$VELOCIDADE" =~ ^[1-9]$|^10$ ]]; then
+    echo "Erro: Velocidade deve estar entre 1 e 10."
+    exit 1
+fi
+
+# Converte a velocidade para o intervalo de -1 a 1
+# 1 -> -1.0, 5 -> 0.0, 10 -> 1.0
+VELOCIDADE_CONVERTIDA=$(echo "scale=1; ($VELOCIDADE - 5) / 5" | bc)
+
+# Ajusta a velocidade do ponteiro
+gsettings set org.gnome.desktop.peripherals.mouse speed "$VELOCIDADE_CONVERTIDA"
+
+echo "Velocidade do ponteiro ajustada para: $VELOCIDADE (convertida para: $VELOCIDADE_CONVERTIDA)"
+

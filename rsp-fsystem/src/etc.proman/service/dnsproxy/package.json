@@ -1,0 +1,20 @@
+{
+  "name": "rsp.dnsproxy",
+  "version": "1.0.0",
+  "description": "A DNS local proxy for faster and genuine nameserver resolution",
+  "scripts": {
+    "start": "npm run stop; bash ./start.sh",
+    "stop": "killall -9 dnsproxy",
+    "inst": "echo Dummy install on dnsproxy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AdguardTeam/dnsproxy.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AdguardTeam/dnsproxy/issues"
+  },
+  "homepage": "https://github.com/AdguardTeam/dnsproxy#readme"
+}

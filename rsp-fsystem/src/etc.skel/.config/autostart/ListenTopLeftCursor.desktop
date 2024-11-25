@@ -1,0 +1,6 @@
+[Desktop Entry]
+Exec=/usr/lib/rsp/proc/listenTopLeftCursor
+Hidden=true
+Name=RspListenTopLeftCursor
+Type=Application
+Version=1.0

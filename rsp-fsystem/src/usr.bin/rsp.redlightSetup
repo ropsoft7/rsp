@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Verifica se um argumento foi fornecido
+if [ "$#" -eq 0 ]; then
+  echo "Uso: $0 <temperatura|show>"
+  exit 1
+fi
+
+# Verifica se o argumento é "show"
+if [ "$1" = "show" ]; then
+  redshift -p  # Mostra a temperatura atual
+  exit 0
+fi
+
+# Verifica se o argumento é um número (temperatura em Kelvin)
+if [[ "$1" =~ ^[0-9]+$ ]]; then
+  # Ajusta a temperatura para o valor especificado
+  pkill redshift;
+  nohup redshift -O "$1"000 &
+else
+  echo "Erro: O argumento deve ser um número (ex: 3500) ou 'show'."
+  exit 1
+fi
+

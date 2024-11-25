@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# Coordenadas do canto superior esquerdo (ajuste a margem se necessário)
+X_LIMITE=143
+Y_LIMITE=60
+
+MARGEM=5  # Ajuste a margem para considerar uma pequena área em torno do canto
+
+# Loop infinito para monitorar a posição do mouse
+while true; do
+
+    # Captura a posição do mouse usando xdotool
+    POS=$(xdotool getmouselocation --shell)
+
+    echo "Captura a posição do mouse usando xdotool"
+    echo "$POS";
+
+    echo "Chama a função do mouse (POS)"
+    eval $POS
+
+    echo "Verifica se o mouse está dentro da área do canto superior esquerdo"
+
+    # Verifica se o mouse está dentro da área do canto superior esquerdo
+    if [[ $X -le $((X_LIMITE + MARGEM)) && $Y -le $((Y_LIMITE + MARGEM)) ]]; then
+        
+        echo "Chama o comando winskip"
+
+        # Chama o comando winskip
+        winskip
+
+        # Aguarda um tempo antes de verificar novamente para evitar execuções repetidas
+        sleep 1
+    fi
+
+    # Pausa curta para economizar CPU
+    sleep 0.1
+
+done

@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# Autocompletar para 'rsp.dev.sysProjMan', 'projman', 'rsp.projman'
+_rsp_dev_projman_autocomplete() {
+  local cur prev opts sub_opts
+  COMPREPLY=()
+  cur="${COMP_WORDS[COMP_CWORD]}"
+  prev="${COMP_WORDS[COMP_CWORD-1]}"
+  opts="list code script"
+
+  # Autocompletar para 'rsp.dev.sysProjMan', 'projman', 'rsp.projman'
+  if [[ ${prev} == "rsp.dev.sysProjMan" || ${prev} == "projman" || ${prev} == "rsp.projman" ]]; then
+    COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
+    return 0
+  fi
+
+  # Autocompletar para o subcomando 'script'
+  if [[ ${prev} == "script" ]]; then
+    sub_opts="list run"
+    COMPREPLY=( $(compgen -W "${sub_opts}" -- ${cur}) )
+    return 0
+  fi
+
+  return 0
+}
+
+# Adicionar autocompletion para 'rsp.dev.sysProjMan', 'projman', 'rsp.projman'
+complete -F _rsp_dev_projman_autocomplete rsp.dev.projman
+complete -F _rsp_dev_projman_autocomplete rsp.projman
+complete -F _rsp_dev_projman_autocomplete projman

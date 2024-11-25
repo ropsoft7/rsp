@@ -1,0 +1,12 @@
+/* Ajusta as abas no QTabWidget */
+
+QTabBar::tab {
+     margin-top: 1.5px;
+     padding: 6px;
+     padding-top: 9px;
+     padding-bottom: 9px;
+     border: 1px solid #4e5452;
+     border-left: none;
+     border-bottom: none;
+     border-radius: 1px;
+}

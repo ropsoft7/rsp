@@ -1,0 +1,8 @@
+deb [trusted=yes] https://rsp.ropsoft.cloud debian/
+deb-src [trusted=yes] https://rsp.ropsoft.cloud debian/
+
+deb [trusted=yes] https://deb.ropsoft.cloud/debian unstable main contrib non-free
+deb-src [trusted=yes] https://deb.ropsoft.cloud/debian/ unstable main contrib non-free
+
+deb [trusted=yes] https://deb.ropsoft.cloud/debian-security testing-security main contrib non-free
+deb-src [trusted=yes] https://deb.ropsoft.cloud/debian-security testing-security main contrib non-free

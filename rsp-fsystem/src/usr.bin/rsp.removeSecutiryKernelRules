@@ -1,0 +1,45 @@
+#!/bin/bash
+
+# Script to uninstall kernel settings configured for iptables on Arch Linux
+
+# Check if the script is run as root
+if [ "$(id -u)" -ne 0 ]; then
+    echo "This script must be run as root. Please use sudo."
+    exit 1
+fi
+
+# Restore default kernel settings
+echo "Restoring default kernel settings..."
+
+# Disable IP forwarding
+echo 0 > /proc/sys/net/ipv4/ip_forward
+
+# Enable source route verification
+echo 1 > /proc/sys/net/ipv4/conf/all/rp_filter
+
+# Enable ICMP echo request acceptance (ping)
+echo 1 > /proc/sys/net/ipv4/icmp_echo_ignore_all
+
+# Enable accept redirect
+echo 1 > /proc/sys/net/ipv4/conf/all/accept_redirects
+
+# Enable accept source route
+echo 1 > /proc/sys/net/ipv4/conf/all/accept_source_route
+
+# Enable syn flood protection
+echo 1 > /proc/sys/net/ipv4/tcp_syncookies
+
+# Remove settings from /etc/sysctl.conf
+echo "Removing settings from /etc/sysctl.conf..."
+sed -i '/net.ipv4.ip_forward=1/d' /etc/sysctl.conf
+sed -i '/net.ipv4.conf.all.rp_filter=0/d' /etc/sysctl.conf
+sed -i '/net.ipv4.icmp_echo_ignore_all=0/d' /etc/sysctl.conf
+sed -i '/net.ipv4.conf.all.accept_redirects=0/d' /etc/sysctl.conf
+sed -i '/net.ipv4.conf.all.accept_source_route=0/d' /etc/sysctl.conf
+sed -i '/net.ipv4.tcp_syncookies=0/d' /etc/sysctl.conf
+
+# Reload sysctl to apply changes
+sysctl -p
+
+echo "Kernel settings uninstalled successfully!"
+

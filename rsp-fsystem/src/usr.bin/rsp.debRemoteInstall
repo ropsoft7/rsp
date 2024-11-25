@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Verifica se o usuário forneceu um link
+if [ "$#" -ne 1 ]; then
+    echo "Uso: $0 <link_do_arquivo_deb>"
+    exit 1
+fi
+
+LINK="$1"
+
+# Baixa o arquivo .deb
+echo "Baixando o pacote de $LINK..."
+wget "$LINK" -O pacote.deb
+
+# Verifica se o download foi bem-sucedido
+if [ $? -ne 0 ]; then
+    echo "Erro ao baixar o arquivo."
+    exit 1
+fi
+
+# Instala o pacote .deb
+echo "Instalando o pacote..."
+sudo dpkg -i pacote.deb
+
+# Verifica se a instalação foi bem-sucedida
+if [ $? -ne 0 ]; then
+    echo "Erro na instalação do pacote. Executando 'apt-get install -f' para corrigir dependências."
+    sudo apt-get install -f
+fi
+
+echo "Instalação concluída!"

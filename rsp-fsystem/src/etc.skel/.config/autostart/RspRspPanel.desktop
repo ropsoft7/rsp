@@ -1,0 +1,6 @@
+[Desktop Entry]
+Exec=/usr/lib/rsp/proc/xcbRspPanel
+Hidden=true
+Name=RspRspPanel
+Type=Application
+Version=1.0

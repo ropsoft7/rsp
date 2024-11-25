@@ -1,0 +1,3 @@
+#!/bin/bash
+
+/usr/local/Nodejs13/bin/node $@;

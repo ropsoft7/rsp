@@ -1,0 +1,130 @@
+#!/bin/bash
+
+# Função para exibir mensagens de erro
+error_exit() {
+    echo "Erro: $1" >&2
+    exit 1
+}
+
+# Função para criar um script com conteúdo específico
+create_script() {
+    local script_name="$1"
+    local script_content="$2"
+
+    echo "Criando script $script_name..."
+    echo -e "$script_content" > "$script_name"
+    chmod +x "$script_name" || error_exit "Não foi possível tornar o script $script_name executável."
+}
+
+# Função para solicitar informações do usuário
+get_input() {
+    local prompt="$1"
+    read -p "$prompt: " input
+    echo "$input"
+}
+
+# Função para criar o diretório do projeto e entrar nele
+setup_project_directory() {
+    local project_name="$1"
+    mkdir -p "$PWD/$project_name" || error_exit "Falha ao criar a pasta $project_name."
+    cd "$project_name" || error_exit "Falha ao entrar na pasta $project_name."
+}
+
+# Função para criar todos os scripts
+create_scripts() {
+    local rebranded_name="$1"
+    local original_repository_url="$2"
+    local original_repository_name="$3"
+    local make_type="$4"
+    local original_prefix="$5"
+    local rebranded_prefix="$6"
+
+    # Script deps.sh
+    create_script "deps.sh" '#!/bin/bash
+echo "Instalando dependências..."
+# Exemplo: sudo apt install -y <package>
+exit 0
+'
+
+    # Script fetch.sh
+    create_script "fetch.sh" "#!/bin/bash
+echo 'Deleting existing ./$rebranded_name directory within 7 seconds...'
+echo 'Press CTRL + C to cancel it now!'
+rm -rf ./$rebranded_name
+git clone $original_repository_url.git
+mv $original_repository_name $rebranded_name
+ls ./$rebranded_name
+exit 0
+"
+
+    # Script rebrand.sh
+    create_script "rebrand.sh" "#!/bin/bash
+HERE=\$(dirname \$(readlink -f \"\$0\"))
+cd \"\$HERE/$rebranded_name\" || exit 1
+if [ \"\$#\" -ne 2 ]; then
+    echo 'Uso: \$0 <originalprefix> <rebrandedprefix>'
+    exit 1
+fi
+/usr/local/bin/rsp.projectRebrandir \"\$1\" \"\$2\"
+exit 0
+"
+
+    # Script make.sh
+    create_script "make.sh" "#!/bin/bash
+HERE=\$(dirname \$(readlink -f \"\$0\"))
+cd \"\$HERE/$rebranded_name\" || exit 1
+cd \"\$HERE/$rebranded_name\" || exit 1
+
+case \"$make_type\" in
+    meson)
+        rm -rf build
+        meson build && ninja -C build && sudo ninja -C build install
+        ;;
+    cmake)
+        rm -rf build
+        mkdir build && cd build
+        cmake .. --fresh && nice -10 make && sudo make install
+        ;;
+    make)
+        make clean && nice -10 make && sudo make install
+        ;;
+    *)
+        echo 'Tipo de build não reconhecido: $make_type. Opções válidas: meson, cmake, make.'
+        exit 1
+        ;;
+esac
+exit 0
+"
+}
+
+# Função para executar scripts na ordem correta
+execute_scripts() {
+    local scripts=("deps.sh" "fetch.sh" "rebrand.sh" "make.sh")
+    
+    for script in "${scripts[@]}"; do
+        if [[ -f "$script" ]]; then
+            echo "Executando $script..."
+            if [[ "$script" == "rebrand.sh" ]]; then
+                bash "$script" "$original_prefix" "$rebranded_prefix" || error_exit "Falha no rebranding."
+            else
+                bash "$script" || error_exit "Falha ao executar $script."
+            fi
+        else
+            error_exit "Script $script não encontrado!"
+        fi
+    done
+}
+
+# Início do script
+rebranded_name=$(get_input "Digite o nome do projeto rebranded")
+original_repository_url=$(get_input "Digite a URL do repositório original (ex: https://github.com/usuario/repo)")
+original_repository_name=$(get_input "Digite o nome do repositório original")
+make_type=$(get_input "Digite o tipo de build (meson/cmake/make)")
+original_prefix=$(get_input "Digite o prefixo original")
+rebranded_prefix=$(get_input "Digite o novo prefixo")
+
+setup_project_directory "$rebranded_name"
+create_scripts "$rebranded_name" "$original_repository_url" "$original_repository_name" "$make_type" "$original_prefix" "$rebranded_prefix"
+execute_scripts
+
+echo "Scaffold do projeto $rebranded_name concluído com sucesso!"

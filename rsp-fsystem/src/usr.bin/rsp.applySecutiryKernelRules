@@ -1,0 +1,55 @@
+#!/bin/bash
+
+# Script to configure useful kernel settings for iptables on Arch Linux
+
+# Check if the script is run as root
+if [ "$(id -u)" -ne 0 ]; then
+    echo "This script must be run as root. Please use sudo."
+    exit 1
+fi
+
+# Enable IP forwarding
+echo "Enabling IP forwarding..."
+echo 1 > /proc/sys/net/ipv4/ip_forward
+
+# Disable source route verification
+echo "Disabling source route verification..."
+echo 0 > /proc/sys/net/ipv4/conf/all/rp_filter
+
+# Disable ICMP echo request acceptance (ping)
+echo "Disabling ICMP echo request acceptance..."
+echo 0 > /proc/sys/net/ipv4/icmp_echo_ignore_all
+
+# Disable accept redirect
+echo "Disabling accept redirect..."
+echo 0 > /proc/sys/net/ipv4/conf/all/accept_redirects
+
+# Disable accept source route
+echo "Disabling accept source route..."
+echo 0 > /proc/sys/net/ipv4/conf/all/accept_source_route
+
+# Disable syn flood protection
+echo "Disabling syn flood protection..."
+echo 0 > /proc/sys/net/ipv4/tcp_syncookies
+
+# Configure some additional useful settings
+echo "Configuring additional settings..."
+sysctl -w net.ipv4.conf.all.forwarding=1
+sysctl -w net.ipv4.conf.default.forwarding=1
+
+# Persist these settings by adding them to /etc/sysctl.conf
+echo "Persisting settings in /etc/sysctl.conf..."
+{
+    echo "net.ipv4.ip_forward=1"
+    echo "net.ipv4.conf.all.rp_filter=0"
+    echo "net.ipv4.icmp_echo_ignore_all=0"
+    echo "net.ipv4.conf.all.accept_redirects=0"
+    echo "net.ipv4.conf.all.accept_source_route=0"
+    echo "net.ipv4.tcp_syncookies=0"
+} >> /etc/sysctl.conf
+
+# Reload sysctl to apply changes
+sysctl -p
+
+echo "Kernel settings configured successfully!"
+

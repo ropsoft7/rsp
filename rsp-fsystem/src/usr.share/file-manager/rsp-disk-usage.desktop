@@ -1,0 +1,26 @@
+[Desktop Entry]
+
+Type=Action
+Name=Check disk usage
+Name[it]=Controlla occupazione sul disco
+Name[es]=Compartir carpeta con Samba
+Name[de]=Ordner mit Samba teilen
+Name[pt]=Compartilhar pasta com o Samba
+Name[fr]=Partager le dossier avec Samba
+Name[nl]=Map delen met Samba
+Name[pl]=Udostępnij folder Sambie
+Name[ru]=Поделиться папкой с Samba
+Name[cz]=Sdílejte složku se Samba
+
+Icon=filelight
+
+Profiles=profile-zero;
+
+[X-Action-Profile profile-zero]
+
+SelectionCount==1
+
+MimeTypes=inode/directory;
+
+Exec=filelight %f
+

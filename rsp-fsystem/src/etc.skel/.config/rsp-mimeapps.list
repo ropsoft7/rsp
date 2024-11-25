@@ -1,0 +1,9 @@
+[Default Applications]
+text/html=firefox-esr.desktop
+x-scheme-handler/http=firefox-esr.desktop
+x-scheme-handler/https=firefox-esr.desktop
+x-scheme-handler/about=firefox-esr.desktop
+x-scheme-handler/unknown=firefox-esr.desktop
+x-scheme-handler/mailto=firefox-esr.desktop
+inode/directory=pcmanfm-qt.desktop
+application/x-shellscript=userapp-localcopy $f-8CLGX2.desktop

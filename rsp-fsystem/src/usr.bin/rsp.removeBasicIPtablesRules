@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Script to uninstall iptables rules for a Personal Computer in a NATed LAN
+
+# Flush all rules
+iptables -F
+iptables -t nat -F
+
+# Reset default policies to ACCEPT
+iptables -P INPUT ACCEPT
+iptables -P FORWARD ACCEPT
+iptables -P OUTPUT ACCEPT
+
+# Optionally delete the logging chain if it exists
+iptables -X LOGGING 2>/dev/null
+
+# Save the changes (optional)
+iptables-save > /etc/iptables/rules.v4
+
+echo "iptables rules have been uninstalled successfully!"
+

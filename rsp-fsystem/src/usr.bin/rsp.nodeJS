@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Set the NODE_PATH to include system-wide and local node modules
+export NODE_PATH=/usr/lib/node_modules:/usr/local/lib/node_modules
+
+# Run Node.js with any arguments passed to the script
+/usr/local/bin/node "$@"

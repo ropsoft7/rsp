@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Diretório para salvar as capturas de tela
+SAVE_DIR=~/Space/media/image
+
+# Cria o diretório se não existir
+mkdir -p "$SAVE_DIR"
+
+# Nome do arquivo com timestamp
+FILENAME="screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png"
+
+# Captura a tela inteira
+grim "$SAVE_DIR/$FILENAME"
+
+# Notifica o usuário (opcional)
+notify-send "Captura de tela" "Salvo em $SAVE_DIR/$FILENAME"

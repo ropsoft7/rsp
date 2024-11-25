@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Verifica se o diretório .ssh existe
+if [ ! -d "$HOME/.ssh" ]; then
+  echo "O diretório ~/.ssh não existe."
+  exit 1
+fi
+
+# Corrige as permissões do diretório .ssh
+chmod 700 "$HOME/.ssh"
+echo "Permissões do diretório ~/.ssh corrigidas."
+
+# Corrige as permissões das chaves
+for key in "$HOME/.ssh/"*; do
+  if [[ -f "$key" ]]; then
+    if [[ "$key" == *"id_rsa"* || "$key" == *"id_ed25519"* ]]; then
+      chmod 600 "$key"
+      echo "Permissões de $key corrigidas para 600."
+    elif [[ "$key" == *".pub" ]]; then
+      chmod 644 "$key"
+      echo "Permissões de $key corrigidas para 644."
+    fi
+  fi
+done
+
+echo "Todas as permissões corrigidas."

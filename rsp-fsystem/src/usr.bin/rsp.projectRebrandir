@@ -1,0 +1,53 @@
+#!/bin/bash
+
+# Check if the correct number of arguments is provided
+if [ "$#" -ne 2 ]; then
+    echo "Usage: $0 <old_text> <new_text>"
+    exit 1
+fi
+
+OLD_TEXT="$1"
+NEW_TEXT="$2"
+
+# Function to replace text in file contents
+replace_in_file() {
+    local file="$1"
+    sed -i "s/${OLD_TEXT}/${NEW_TEXT}/g" "$file"
+}
+
+# Function to rename files and directories
+rename_items() {
+    local item="$1"
+    local dir
+    dir=$(dirname "$item")
+    local base
+    base=$(basename "$item")
+
+    # Replace text in the name
+    if [[ "$base" == *"$OLD_TEXT"* ]]; then
+        new_name="${base//$OLD_TEXT/$NEW_TEXT}"
+        mv "$item" "$dir/$new_name"
+        echo "Renamed: $item to $dir/$new_name"
+        item="$dir/$new_name"  # Atualiza o caminho do item renomeado
+    fi
+
+    # Recursivamente renomeia diretórios
+    for sub_item in "$item"/*; do
+        if [ -e "$sub_item" ]; then
+            rename_items "$sub_item"
+        fi
+    done
+}
+
+# Export functions for use in find
+export -f replace_in_file
+export -f rename_items
+export OLD_TEXT
+export NEW_TEXT
+
+# Recursively find and process files
+find . -type f -exec bash -c 'replace_in_file "$0"' {} \;
+find . -exec bash -c 'rename_items "$0"' {} \;
+
+echo "Replacement complete."
+

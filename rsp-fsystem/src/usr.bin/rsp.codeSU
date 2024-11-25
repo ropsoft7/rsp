@@ -1,0 +1,4 @@
+#!/bin/bash
+
+sudo rm -rf /tmp/rsp.codeSU
+sudo codium /usr/local/bin/rsp.codeSU $@ --no-sandbox --user-data-dir /tmp/rsp.codeSU

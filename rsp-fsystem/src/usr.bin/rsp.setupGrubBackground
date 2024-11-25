@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# Path to the image
+IMAGE_PATH="$1"
+
+# Check if the image exists
+if [ ! -f "$IMAGE_PATH" ]; then
+  echo "Image file does not exist!"
+  exit 1
+fi
+
+# Copy the image to /boot/grub/
+sudo cp "$IMAGE_PATH" /boot/grub/
+
+# Update GRUB configuration to set the background image
+sudo sed -i "s|^#GRUB_BACKGROUND=.*|GRUB_BACKGROUND=/boot/grub/$(basename "$IMAGE_PATH")|" /etc/default/grub
+
+# Regenerate GRUB configuration
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+# Reboot the system
+echo "GRUB background changed successfully! Rebooting whitin 10sec"
+echo Press CRONTROL + C if you do not want to reboot.
+
+sleep 10
+
+sudo reboot
+

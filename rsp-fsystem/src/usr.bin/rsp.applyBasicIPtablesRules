@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# Modify this file accordingly for your specific requirement.
+
+#!/bin/bash
+
+# Clear existing rules
+sudo iptables -F
+sudo iptables -X
+
+# Set default policies
+sudo iptables -P INPUT DROP
+sudo iptables -P FORWARD DROP
+sudo iptables -P OUTPUT ACCEPT
+
+# Allow loopback traffic
+sudo iptables -A INPUT -i lo -j ACCEPT
+sudo iptables -A OUTPUT -o lo -j ACCEPT
+
+# Allow established and related connections
+sudo iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+
+# Deny incoming connections for SSH (22), HTTP (80), and HTTPS (443)
+sudo iptables -A INPUT -p tcp --dport 22 -j DROP
+sudo iptables -A INPUT -p tcp --dport 80 -j DROP
+sudo iptables -A INPUT -p tcp --dport 443 -j DROP
+
+# Allow DNS (53) for outgoing queries
+sudo iptables -A OUTPUT -p udp --dport 53 -j ACCEPT
+sudo iptables -A OUTPUT -p tcp --dport 53 -j ACCEPT
+
+# Allow ICMP (ping)
+sudo iptables -A OUTPUT -p icmp --icmp-type echo-reply -j ACCEPT
+
+# Rule for logging dropped packets
+sudo iptables -A INPUT -j LOG --log-prefix "IPTables Dropped: " --log-level 4
+
+# Salvar regras (para sistemas baseados em Debian/Ubuntu)
+sudo iptables-save | sudo tee /etc/iptables/rules.v4
+
+echo "iptables rules have been applied successfully and saved!"

@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=@RSp Session
+Comment=Start Compify's Wayland Desktop Session
+Exec=/usr/lib/rsp/desktop/startRspDesktopWayland
+Type=Application
+Session=wayland

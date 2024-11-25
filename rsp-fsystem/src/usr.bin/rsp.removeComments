@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Verifica se um arquivo foi passado como argumento
+if [ -z "$1" ]; then
+  echo "Uso: $0 <arquivo>"
+  exit 1
+fi
+
+arquivo="$1"
+
+# Verifica se o arquivo existe
+if [ ! -f "$arquivo" ]; then
+  echo "Erro: Arquivo não encontrado."
+  exit 1
+fi
+
+# Define um arquivo temporário
+tempfile=$(mktemp)
+
+# Remove comentários de linhas inteiras ou finais de linha sem alterar dados importantes
+sed -E 's/\s*(#|\/\/).*//g; /^\s*$/d' "$arquivo" > "$tempfile"
+
+# Substitui o arquivo original pelo arquivo temporário
+mv "$tempfile" "$arquivo"
+
+echo "Comentários removidos do arquivo: $arquivo"
+

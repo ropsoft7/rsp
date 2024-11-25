@@ -1,0 +1,7 @@
+[Desktop Entry]
+Exec=/usr/local/bin/nm-applet
+Name=network-manager-applet
+OnlyShowIn=RSp;
+Type=Application
+Version=1.0
+X-RSp-Need-Tray=true

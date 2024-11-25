@@ -1,0 +1,9 @@
+PRETTY_NAME="@RSp GNU/Linux"
+NAME="@RSp GNU/Linux"
+VERSION_ID="777"
+VERSION="777"
+VERSION_CODENAME=unstable
+ID=debian
+HOME_URL="https://rsp.ropsoft.cloud"
+SUPPORT_URL="https://rsp.ropsoft.cloud/support"
+BUG_REPORT_URL="https://rsp.ropsoft.cloud/report"

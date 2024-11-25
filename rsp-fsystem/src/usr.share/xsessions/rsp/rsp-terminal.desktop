@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=@RSp Session (TTY)
+Comment=Start raw Terminal Session
+Exec=startRspTerminal
+Type=Application
+Session=tty

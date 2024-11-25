@@ -1,0 +1,50 @@
+#!/bin/bash
+
+# Nome do pacote ou padrão de arquivo para buscar
+PACKAGE_NAME=$1
+
+if [ -z "$PACKAGE_NAME" ]; then
+  echo "Uso: $0 nome_do_pacote"
+  exit 1
+fi
+
+echo "Procurando por arquivos relacionados a '$PACKAGE_NAME' em /usr e /usr/local..."
+
+# Busca e remove arquivos relacionados ao pacote
+FOUND_FILES=$(sudo find /usr /usr/local -type f -iname "*$PACKAGE_NAME*" 2>/dev/null)
+
+if [ -z "$FOUND_FILES" ]; then
+  echo "Nenhum arquivo encontrado relacionado a '$PACKAGE_NAME'."
+else
+  echo "Arquivos encontrados:"
+  echo "$FOUND_FILES"
+  
+  # Pergunta ao usuário se deve continuar
+  read -p "Deseja remover esses arquivos? (s/n) " CONFIRM
+  if [[ "$CONFIRM" =~ ^[Ss]$ ]]; then
+    echo "$FOUND_FILES" | sudo xargs rm -v
+    echo "Arquivos removidos."
+  else
+    echo "Operação cancelada pelo usuário."
+  fi
+fi
+
+# Busca e remove diretórios relacionados ao pacote
+FOUND_DIRS=$(sudo find /usr /usr/local -type d -iname "*$PACKAGE_NAME*" 2>/dev/null)
+
+if [ -z "$FOUND_DIRS" ]; then
+  echo "Nenhum diretório encontrado relacionado a '$PACKAGE_NAME'."
+else
+  echo "Diretórios encontrados:"
+  echo "$FOUND_DIRS"
+  
+  read -p "Deseja remover esses diretórios? (s/n) " CONFIRM_DIRS
+  if [[ "$CONFIRM_DIRS" =~ ^[Ss]$ ]]; then
+    echo "$FOUND_DIRS" | sudo xargs rm -rv
+    echo "Diretórios removidos."
+  else
+    echo "Operação cancelada pelo usuário."
+  fi
+fi
+
+echo "Desinstalação bruta concluída."

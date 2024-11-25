@@ -1,0 +1,19 @@
+export GTK_CSD=0
+export LD_PRELOAD="/usr/local/lib/libgtk3-nocsd.so.0"
+export LD_LIBRARY_PATH="/usr/local/lib:/usr/lib";
+
+export WM="compify"
+export WINDOW_MANAGER="compify"
+
+export GDK_BACKEND="wayland,x11"
+export MOZ_ENABLE_WAYLAND="1"
+
+# export BEMENU_BACKEND="wayland"
+# export CLUTTER_BACKEND="wayland"
+# export SDL_VIDEODRIVER="wayland"
+
+export XDG_SESSION_TYPE="wayland"
+export XKB_DEFAULT_RULES="evdev"
+
+export QT_QPA_PLATFORM="wayland;xcb"
+export _JAVA_AWT_WM_NONREPARENTING=1

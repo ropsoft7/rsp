@@ -1,0 +1,1 @@
+sudo mkdir -p /opt && curl -L https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.24.5-stable.tar.xz -o /tmp/flutter_linux_3.24.5-stable.tar.xz && sudo tar -xJf /tmp/flutter_linux_3.24.5-stable.tar.xz -C /opt && echo 'export PATH=$PATH:/opt/flutter/bin' | sudo tee -a /etc/profile && source /etc/profile

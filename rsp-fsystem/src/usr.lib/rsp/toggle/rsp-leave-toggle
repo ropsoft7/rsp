@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Verifica se o rsp-leave já está rodando
+if pgrep -x "rsp-leave" > /dev/null; then
+    # Se estiver rodando, fecha o rsp-leave
+    pkill -9rsp-leave
+else
+    # Se não estiver rodando, abre o rsp-leave
+    rsp-leave
+fi

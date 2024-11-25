@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<compify_config>
+  <theme>
+    <name>AdwaitaDarkCompify</name>
+    <cornerRadius>6</cornerRadius>
+    <font name="sans" size="10"/>
+    <dropShadows>yes</dropShadows>
+  </theme>
+  <mouse>
+    <default/>
+    <context name="Root">
+      <mousebind button="Middle" action="Press">
+        <action name="ShowMenu" menu="root-menu"/>
+      </mousebind>
+      <mousebind button="Right" action="Press">
+        <action name="none"/>
+      </mousebind>
+      <mousebind button="Left" action="Press">
+        <action name="none"/>
+      </mousebind>
+    </context>
+  </mouse>
+  <placement>
+    <policy>Cascade</policy>
+  </placement>
+  <libinput>
+    <device>
+      <naturalScroll>no</naturalScroll>
+    </device>
+  </libinput>
+</compify_config>

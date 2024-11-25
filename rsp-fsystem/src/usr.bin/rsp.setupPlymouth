@@ -1,0 +1,62 @@
+#!/bin/bash
+
+# Verifica se o caminho da imagem foi fornecido
+if [ -z "$1" ]; then
+  echo "Uso: $0 /caminho/para/splash.png"
+  exit 1
+fi
+
+IMAGEM="$1"
+TEMA_DIR="/usr/share/plymouth/themes/rsp"
+IMAGEM_DESTINO="$TEMA_DIR/images/splash.png"
+
+# Cria a estrutura do tema
+echo "Criando estrutura do tema Plymouth..."
+sudo mkdir -p "$TEMA_DIR/images"
+
+# Copia a imagem para o diretório do tema
+echo "Copiando a imagem para $TEMA_DIR/images..."
+sudo cp "$IMAGEM" "$IMAGEM_DESTINO"
+
+# Cria o arquivo plymouth principal
+echo "Criando o arquivo rsp.plymouth..."
+sudo bash -c 'cat > /usr/share/plymouth/themes/rsp/rsp.plymouth <<EOL
+[Plymouth Theme]
+Name=RSP
+Description=Tema personalizado para boot
+Version=1.0
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/rsp/images
+ScriptFile=/usr/share/plymouth/themes/rsp/rsp-script
+EOL'
+
+# Cria o script do tema Plymouth
+echo "Criando o script rsp-script..."
+sudo bash -c 'cat > /usr/share/plymouth/themes/rsp/rsp-script <<EOL
+#!/bin/sh
+plymouth_set_color 0 0 0 0  # Fundo transparente
+plymouth --show-splash /usr/share/plymouth/themes/rsp/images/splash.png
+plymouth_progress 0
+while [ \$plymouth_progress -lt 100 ]; do
+  plymouth_progress \$((plymouth_progress + 1))
+  sleep 0.05
+done
+EOL'
+
+# Dá permissão ao script
+echo "Definindo permissões para o script..."
+sudo chmod +x /usr/share/plymouth/themes/rsp/rsp-script
+
+# Define o tema Plymouth como padrão
+echo "Definindo o tema como padrão..."
+sudo plymouth-set-default-theme rsp
+
+# Atualiza o initramfs
+echo "Atualizando o initramfs..."
+sudo update-initramfs -u
+
+# Exibe mensagem de sucesso
+echo "Tema Plymouth configurado com sucesso. Reinicie o sistema para aplicar."
+

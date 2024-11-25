@@ -1,0 +1,39 @@
+/* Estilo para QLineEdit (barra de pesquisa e campo de texto) */
+QLineEdit {
+    color: #f5f5f5; /* Cor do texto */
+    border: 1px solid #4e5452; /* Borda semi-clara */
+    border-left: 0;
+    border-bottom: 0;
+    padding: 6px; /* Espaçamento interno */
+    border-radius: 1px; /* Bordas arredondadas */
+}
+
+/* Efeito ao focar no campo de texto */
+QLineEdit:focus {
+    border: 1px solid #0078d7; /* Cor da borda ao focar */
+}
+
+/* Estilo para QLineEdit (campo de filtro) */
+QLineEdit#filterLineEdit {
+    background-color: #3c3f41; /* Cor de fundo do campo de filtro */
+    color: #f8f8f2; /* Cor do texto */
+    border: 1px solid #4e5452; /* Borda semi-clara */
+    padding: 4px; /* Espaçamento interno */
+    border-radius: 3px; /* Bordas arredondadas */
+}
+
+/* Efeito ao focar no campo de filtro */
+QLineEdit#filterLineEdit:focus {
+    border: 1px solid #0078d7; /* Cor da borda ao focar */
+}
+
+/* Estilo para o placeholder (texto de sugestão) */
+QLineEdit#filterLineEdit::placeholder {
+    color: #a6a6a6; /* Cor do texto placeholder */
+}
+
+/* Estilo para QLineEdit (campo de filtro com texto selecionado) */
+QLineEdit#filterLineEdit:selected {
+    background-color: #0078d7; /* Cor de fundo ao selecionar texto */
+    color: #ffffff; /* Cor do texto ao selecionar */
+}

@@ -1,0 +1,12 @@
+node_modules
+package-lock.json
+node_modules
+node_modules/*
+node_modules/**/*
+nohup.out
+proj
+.git
+.git/*
+.git/**/*
+*.git
+*/**/*.git

@@ -1,0 +1,6 @@
+#!/bin/bash
+
+curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+apt-get install nsolid -y
+
+exit 0;

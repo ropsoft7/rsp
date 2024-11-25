@@ -1,0 +1,382 @@
+#dashtodockContainer.bottom,
+#dashtodockContainer.shrink.bottom {
+  margin: 0;
+  padding: 0; }
+  #dashtodockContainer.bottom #dash,
+  #dashtodockContainer.shrink.bottom #dash {
+    margin: 4px;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding: 0; }
+    #dashtodockContainer.bottom #dash .dash-background,
+    #dashtodockContainer.shrink.bottom #dash .dash-background {
+      margin: 0;
+      margin-bottom: 4px;
+      margin-top: 4px;
+      padding: 0;
+      border-radius: 16px; }
+    #dashtodockContainer.bottom #dash .dash-separator,
+    #dashtodockContainer.shrink.bottom #dash .dash-separator {
+      margin-bottom: 0; }
+    #dashtodockContainer.bottom #dash #dashtodockContainer,
+    #dashtodockContainer.shrink.bottom #dash #dashtodockContainer {
+      margin: 50%;
+      margin-bottom: 0;
+      margin-top: 0;
+      padding: 0;
+      spacing: 0; }
+    #dashtodockContainer.bottom #dash .dash-item-container,
+    #dashtodockContainer.shrink.bottom #dash .dash-item-container {
+      margin: 0;
+      margin-top: 4px; }
+      #dashtodockContainer.bottom #dash .dash-item-container .app-well-app,
+      #dashtodockContainer.bottom #dash .dash-item-container .show-apps,
+      #dashtodockContainer.shrink.bottom #dash .dash-item-container .app-well-app,
+      #dashtodockContainer.shrink.bottom #dash .dash-item-container .show-apps {
+        margin: 0;
+        padding: 0;
+        padding-bottom: 4px;
+        padding-top: 0px; }
+
+#dashtodockContainer.top,
+#dashtodockContainer.shrink.top {
+  margin: 0;
+  padding: 0; }
+  #dashtodockContainer.top #dash,
+  #dashtodockContainer.shrink.top #dash {
+    margin: 4px;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0; }
+    #dashtodockContainer.top #dash .dash-background,
+    #dashtodockContainer.shrink.top #dash .dash-background {
+      margin: 0;
+      margin-top: 4px;
+      margin-bottom: 4px;
+      padding: 0;
+      border-radius: 16px; }
+    #dashtodockContainer.top #dash .dash-separator,
+    #dashtodockContainer.shrink.top #dash .dash-separator {
+      margin-bottom: 0; }
+    #dashtodockContainer.top #dash #dashtodockContainer,
+    #dashtodockContainer.shrink.top #dash #dashtodockContainer {
+      margin: 50%;
+      margin-top: 0;
+      margin-bottom: 0;
+      padding: 0;
+      spacing: 0; }
+    #dashtodockContainer.top #dash .dash-item-container,
+    #dashtodockContainer.shrink.top #dash .dash-item-container {
+      margin: 0;
+      margin-bottom: 4px; }
+      #dashtodockContainer.top #dash .dash-item-container .app-well-app,
+      #dashtodockContainer.top #dash .dash-item-container .show-apps,
+      #dashtodockContainer.shrink.top #dash .dash-item-container .app-well-app,
+      #dashtodockContainer.shrink.top #dash .dash-item-container .show-apps {
+        margin: 0;
+        padding: 0;
+        padding-top: 4px;
+        padding-bottom: 0px; }
+
+#dashtodockContainer.left,
+#dashtodockContainer.shrink.left {
+  margin: 0;
+  padding: 0; }
+  #dashtodockContainer.left #dash,
+  #dashtodockContainer.shrink.left #dash {
+    margin: 4px;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0; }
+    #dashtodockContainer.left #dash .dash-background,
+    #dashtodockContainer.shrink.left #dash .dash-background {
+      margin: 0;
+      margin-left: 4px;
+      margin-right: 4px;
+      padding: 0;
+      border-radius: 16px; }
+    #dashtodockContainer.left #dash .dash-separator,
+    #dashtodockContainer.shrink.left #dash .dash-separator {
+      height: 1px;
+      margin: 7px 0;
+      background-color: rgba(238, 238, 236, 0.3); }
+    #dashtodockContainer.left #dash #dashtodockContainer,
+    #dashtodockContainer.shrink.left #dash #dashtodockContainer {
+      margin: 50%;
+      margin-left: 0;
+      margin-right: 0;
+      padding: 0;
+      spacing: 0; }
+    #dashtodockContainer.left #dash .dash-item-container,
+    #dashtodockContainer.shrink.left #dash .dash-item-container {
+      margin: 0;
+      margin-right: 4px; }
+      #dashtodockContainer.left #dash .dash-item-container .app-well-app,
+      #dashtodockContainer.left #dash .dash-item-container .show-apps,
+      #dashtodockContainer.shrink.left #dash .dash-item-container .app-well-app,
+      #dashtodockContainer.shrink.left #dash .dash-item-container .show-apps {
+        margin: 0;
+        padding: 0;
+        padding-left: 4px;
+        padding-right: 0px; }
+
+#dashtodockContainer.right,
+#dashtodockContainer.shrink.right {
+  margin: 0;
+  padding: 0; }
+  #dashtodockContainer.right #dash,
+  #dashtodockContainer.shrink.right #dash {
+    margin: 4px;
+    margin-right: 0;
+    margin-left: 0;
+    padding: 0; }
+    #dashtodockContainer.right #dash .dash-background,
+    #dashtodockContainer.shrink.right #dash .dash-background {
+      margin: 0;
+      margin-right: 4px;
+      margin-left: 4px;
+      padding: 0;
+      border-radius: 16px; }
+    #dashtodockContainer.right #dash .dash-separator,
+    #dashtodockContainer.shrink.right #dash .dash-separator {
+      height: 1px;
+      margin: 7px 0;
+      background-color: rgba(238, 238, 236, 0.3); }
+    #dashtodockContainer.right #dash #dashtodockContainer,
+    #dashtodockContainer.shrink.right #dash #dashtodockContainer {
+      margin: 50%;
+      margin-right: 0;
+      margin-left: 0;
+      padding: 0;
+      spacing: 0; }
+    #dashtodockContainer.right #dash .dash-item-container,
+    #dashtodockContainer.shrink.right #dash .dash-item-container {
+      margin: 0;
+      margin-left: 4px; }
+      #dashtodockContainer.right #dash .dash-item-container .app-well-app,
+      #dashtodockContainer.right #dash .dash-item-container .show-apps,
+      #dashtodockContainer.shrink.right #dash .dash-item-container .app-well-app,
+      #dashtodockContainer.shrink.right #dash .dash-item-container .show-apps {
+        margin: 0;
+        padding: 0;
+        padding-right: 4px;
+        padding-left: 0px; }
+
+#dashtodockContainer.dashtodock .app-well-app .overview-icon {
+  padding: 8px; }
+
+#dashtodockContainer.running-dots .app-well-app.focused .overview-icon,
+#dashtodockContainer.dashtodock .app-well-app.focused .overview-icon {
+  background-color: rgba(238, 238, 236, 0.2);
+  border-radius: 17px; }
+
+#dashtodockContainer.running-dots .app-well-app:hover .overview-icon,
+#dashtodockContainer.dashtodock .app-well-app:hover .overview-icon {
+  background-color: rgba(238, 238, 236, 0.2);
+  border-radius: 17px; }
+
+#dashtodockContainer.extended.bottom,
+#dashtodockContainer.extended.shrink.bottom {
+  margin: 0;
+  padding: 0; }
+  #dashtodockContainer.extended.bottom #dash,
+  #dashtodockContainer.extended.shrink.bottom #dash {
+    margin: 0;
+    padding: 0; }
+    #dashtodockContainer.extended.bottom #dash .dash-background,
+    #dashtodockContainer.extended.shrink.bottom #dash .dash-background {
+      margin: 0;
+      margin-bottom: 0;
+      margin-top: 0;
+      padding: 0;
+      border-radius: 0; }
+    #dashtodockContainer.extended.bottom #dash .dash-separator,
+    #dashtodockContainer.extended.shrink.bottom #dash .dash-separator {
+      margin-bottom: 0; }
+    #dashtodockContainer.extended.bottom #dash #dashtodockContainer,
+    #dashtodockContainer.extended.shrink.bottom #dash #dashtodockContainer {
+      margin: 50%;
+      margin-bottom: 0;
+      margin-top: 0;
+      padding: 0;
+      spacing: 0; }
+    #dashtodockContainer.extended.bottom #dash .dash-item-container,
+    #dashtodockContainer.extended.shrink.bottom #dash .dash-item-container {
+      margin: 0;
+      margin-top: 0; }
+      #dashtodockContainer.extended.bottom #dash .dash-item-container .app-well-app,
+      #dashtodockContainer.extended.bottom #dash .dash-item-container .show-apps,
+      #dashtodockContainer.extended.shrink.bottom #dash .dash-item-container .app-well-app,
+      #dashtodockContainer.extended.shrink.bottom #dash .dash-item-container .show-apps {
+        margin: 0;
+        padding: 0;
+        padding-bottom: 0px;
+        padding-top: 0px; }
+  #dashtodockContainer.extended.bottom .app-well-app .overview-icon,
+  #dashtodockContainer.extended.shrink.bottom .app-well-app .overview-icon {
+    padding: 12px; }
+
+#dashtodockContainer.extended.top,
+#dashtodockContainer.extended.shrink.top {
+  margin: 0;
+  padding: 0; }
+  #dashtodockContainer.extended.top #dash,
+  #dashtodockContainer.extended.shrink.top #dash {
+    margin: 0;
+    padding: 0; }
+    #dashtodockContainer.extended.top #dash .dash-background,
+    #dashtodockContainer.extended.shrink.top #dash .dash-background {
+      margin: 0;
+      margin-top: 0;
+      margin-bottom: 0;
+      padding: 0;
+      border-radius: 0; }
+    #dashtodockContainer.extended.top #dash .dash-separator,
+    #dashtodockContainer.extended.shrink.top #dash .dash-separator {
+      margin-bottom: 0; }
+    #dashtodockContainer.extended.top #dash #dashtodockContainer,
+    #dashtodockContainer.extended.shrink.top #dash #dashtodockContainer {
+      margin: 50%;
+      margin-top: 0;
+      margin-bottom: 0;
+      padding: 0;
+      spacing: 0; }
+    #dashtodockContainer.extended.top #dash .dash-item-container,
+    #dashtodockContainer.extended.shrink.top #dash .dash-item-container {
+      margin: 0;
+      margin-bottom: 0; }
+      #dashtodockContainer.extended.top #dash .dash-item-container .app-well-app,
+      #dashtodockContainer.extended.top #dash .dash-item-container .show-apps,
+      #dashtodockContainer.extended.shrink.top #dash .dash-item-container .app-well-app,
+      #dashtodockContainer.extended.shrink.top #dash .dash-item-container .show-apps {
+        margin: 0;
+        padding: 0;
+        padding-top: 0px;
+        padding-bottom: 0px; }
+  #dashtodockContainer.extended.top .app-well-app .overview-icon,
+  #dashtodockContainer.extended.shrink.top .app-well-app .overview-icon {
+    padding: 12px; }
+
+#dashtodockContainer.extended.left,
+#dashtodockContainer.extended.shrink.left {
+  margin: 0;
+  padding: 0; }
+  #dashtodockContainer.extended.left #dash,
+  #dashtodockContainer.extended.shrink.left #dash {
+    margin: 0;
+    padding: 0; }
+    #dashtodockContainer.extended.left #dash .dash-background,
+    #dashtodockContainer.extended.shrink.left #dash .dash-background {
+      margin: 0;
+      margin-left: 0;
+      margin-right: 0;
+      padding: 0;
+      border-radius: 0; }
+    #dashtodockContainer.extended.left #dash .dash-separator,
+    #dashtodockContainer.extended.shrink.left #dash .dash-separator {
+      height: 1px;
+      margin: 7px 0;
+      background-color: rgba(238, 238, 236, 0.3); }
+    #dashtodockContainer.extended.left #dash #dashtodockContainer,
+    #dashtodockContainer.extended.shrink.left #dash #dashtodockContainer {
+      margin: 50%;
+      margin-left: 0;
+      margin-right: 0;
+      padding: 0;
+      spacing: 0; }
+    #dashtodockContainer.extended.left #dash .dash-item-container,
+    #dashtodockContainer.extended.shrink.left #dash .dash-item-container {
+      margin: 0;
+      margin-right: 0; }
+      #dashtodockContainer.extended.left #dash .dash-item-container .app-well-app,
+      #dashtodockContainer.extended.left #dash .dash-item-container .show-apps,
+      #dashtodockContainer.extended.shrink.left #dash .dash-item-container .app-well-app,
+      #dashtodockContainer.extended.shrink.left #dash .dash-item-container .show-apps {
+        margin: 0;
+        padding: 0;
+        padding-left: 0px;
+        padding-right: 0px; }
+  #dashtodockContainer.extended.left .app-well-app .overview-icon,
+  #dashtodockContainer.extended.shrink.left .app-well-app .overview-icon {
+    padding: 12px; }
+
+#dashtodockContainer.extended.right,
+#dashtodockContainer.extended.shrink.right {
+  margin: 0;
+  padding: 0; }
+  #dashtodockContainer.extended.right #dash,
+  #dashtodockContainer.extended.shrink.right #dash {
+    margin: 0;
+    padding: 0; }
+    #dashtodockContainer.extended.right #dash .dash-background,
+    #dashtodockContainer.extended.shrink.right #dash .dash-background {
+      margin: 0;
+      margin-right: 0;
+      margin-left: 0;
+      padding: 0;
+      border-radius: 0; }
+    #dashtodockContainer.extended.right #dash .dash-separator,
+    #dashtodockContainer.extended.shrink.right #dash .dash-separator {
+      height: 1px;
+      margin: 7px 0;
+      background-color: rgba(238, 238, 236, 0.3); }
+    #dashtodockContainer.extended.right #dash #dashtodockContainer,
+    #dashtodockContainer.extended.shrink.right #dash #dashtodockContainer {
+      margin: 50%;
+      margin-right: 0;
+      margin-left: 0;
+      padding: 0;
+      spacing: 0; }
+    #dashtodockContainer.extended.right #dash .dash-item-container,
+    #dashtodockContainer.extended.shrink.right #dash .dash-item-container {
+      margin: 0;
+      margin-left: 0; }
+      #dashtodockContainer.extended.right #dash .dash-item-container .app-well-app,
+      #dashtodockContainer.extended.right #dash .dash-item-container .show-apps,
+      #dashtodockContainer.extended.shrink.right #dash .dash-item-container .app-well-app,
+      #dashtodockContainer.extended.shrink.right #dash .dash-item-container .show-apps {
+        margin: 0;
+        padding: 0;
+        padding-right: 0px;
+        padding-left: 0px; }
+  #dashtodockContainer.extended.right .app-well-app .overview-icon,
+  #dashtodockContainer.extended.shrink.right .app-well-app .overview-icon {
+    padding: 12px; }
+
+#dashtodockContainer .number-overlay {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.8);
+  text-align: center; }
+
+#dashtodockContainer .notification-badge {
+  color: black;
+  background-color: #e56a54;
+  padding: 0.2em 0.5em;
+  border-radius: 1em;
+  font-weight: bold;
+  text-align: center;
+  margin: 2px; }
+
+/* Window Previews popup */
+#dashtodockWindowPreviewMenu {
+  -arrow-border-radius: 12px; }
+
+#dashtodockWindowList {
+  padding: 0 12px; }
+
+#dashtodockWindowList #dashtodockWindowPreview {
+  border-radius: 12px; }
+
+#dashtodockWindowPreview .window-close {
+  width: 18px;
+  height: 18px;
+  padding: 2px; }
+
+#dashtodockPreviewSeparator.popup-separator-menu-item-horizontal {
+  width: 1px;
+  height: auto;
+  border-right-width: 1px;
+  margin: 32px 0px; }
+
+.dashtodock-app-well-preview-menu-item {
+  padding: 1em 1em 0.5em 1em; }

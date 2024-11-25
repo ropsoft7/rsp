@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Verifica se o Spotrun já está rodando
+if pgrep -x "spotrun" > /dev/null; then
+    # Se estiver rodando, fecha o Spotrun
+    pkill spotrun
+else
+    # Se não estiver rodando, abre o Spotrun
+    spotrun &
+fi

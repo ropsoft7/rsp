@@ -1,0 +1,19 @@
+#!/bin/bash
+
+echo Installing tailscale...
+
+curl -fsSL https://tailscale.com/install.sh | sudo sh
+
+echo Going down ready Tailscale interface...
+
+sudo tailscale down;
+
+echo Setting up Tailscale interface...
+
+sudo tailscale up --accept-risk all --accept-dns --advertise-connector --auth-key=tskey-auth-kJ4TZFHWwC21CNTRL-iepQ1wKSNA66RLj9Wf8GA6Wnz9gXHeeDf --hostname=ozzyThinkPad  --exit-node 100.112.58.1 --operator=ozzy;
+
+echo Connecting to VPS exit-node...
+
+sudo tailscale set --exit-node ropsoftvpserver --operator=ozzy
+
+exit 0;

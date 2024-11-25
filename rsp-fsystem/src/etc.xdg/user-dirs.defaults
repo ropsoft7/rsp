@@ -1,0 +1,8 @@
+DESKTOP=Space/.desktop
+DOWNLOAD=Space/wget
+TEMPLATES=Space/media/model
+PUBLICSHARE=Space/media/public
+DOCUMENTS=Space/document
+MUSIC=Space/media/music
+PICTURES=Space/media/image
+VIDEOS=Space/media/video

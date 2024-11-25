@@ -1,0 +1,31 @@
+#!/usr/local/bin/rsp.nodeJS
+
+const RSp = require("rsp-libjscript");
+
+const rsp = new RSp();
+
+if (!process.env.XDG_CURRENT_DESKTOP) {
+    
+    rsp.prompt(async ({ askBoolean }) => {
+
+        const wannaGoDesktop = await askBoolean('Do you wish to start a desktop session?');
+
+        if (wannaGoDesktop) {
+            
+            try {
+                rsp.prin("Starting RSP Desktop Session (Wayland)...", { type: "warning" });
+                rsp.exec("sleep 3; exec /usr/lib/rsp/desktop/startRspDesktopWayland > /dev/null");
+            } catch (error) {
+                rsp.prin("Failed to start RSP Desktop Session:", error.message, { type: "error" });
+            }
+        }
+
+    });
+    
+} else {
+    rsp.prin("Desktop Session is already running.");
+    rsp.prin("Running on @RSp Desktop Session.");
+}
+
+
+    

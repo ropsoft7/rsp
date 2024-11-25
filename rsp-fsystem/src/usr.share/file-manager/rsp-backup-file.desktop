@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Action
+Name=Backup file
+Icon=backup
+Profiles=profile-zero;
+[X-Action-Profile profile-zero]
+
+MimeTypes=text/*;audio/*;image/*;application/*;video/*
+Exec=cp %f %f.~
+#With date and error message:
+Exec=/usr/lib/rsp/action/localcopy %f
+Name=Default profile

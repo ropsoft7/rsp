@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Verifica se um termo foi fornecido
+if [ -z "$1" ]; then
+    echo "Uso: $0 <termo de busca>"
+    exit 1
+fi
+
+# Variável do termo de busca
+termo="$1"
+
+# Diretório atual
+diretorio_atual=$(pwd)
+
+echo "Buscando por '$termo' no diretório: $diretorio_atual"
+
+# Busca por arquivos cujo conteúdo contém o termo
+echo "### Ocorrências do termo '$termo' dentro de arquivos ###"
+grep -rnw "$diretorio_atual" -e "$termo"
+
+# Busca por arquivos e pastas que tenham o termo no nome
+echo "### Arquivos e pastas com o termo '$termo' no nome ###"
+find "$diretorio_atual" -name "*$termo*"
+
+echo "Busca finalizada."
+

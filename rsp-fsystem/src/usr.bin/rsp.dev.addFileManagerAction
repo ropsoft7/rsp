@@ -1,0 +1,84 @@
+#!/usr/local/bin/rsp.nodeJS
+
+const shell = require('shelljs');
+const fs = require('fs');
+const path = require('path');
+const readline = require('readline');
+
+// Função para criar o arquivo de ação
+function criarArquivoDeAcao(nomeAcao) {
+
+    // Caminho onde o arquivo de ação será criado temporariamente
+    const caminhoTemp = path.join(__dirname, nomeAcao + '.desktop');
+
+    // Conteúdo básico do arquivo .desktop (boilerplate)
+    const conteudoArquivo = `[Desktop Entry]
+Type=Application
+Name=${nomeAcao}
+Exec=echo "Ação ${nomeAcao} executada"
+Icon=utilities-terminal
+Terminal=true
+`;
+
+    // Criar o arquivo com o conteúdo
+    fs.writeFileSync(caminhoTemp, conteudoArquivo, 'utf8');
+    console.log(`Arquivo de ação ${nomeAcao} criado em ${caminhoTemp}`);
+    return caminhoTemp;
+}
+
+// Função para abrir o arquivo com nano
+// function abrirComNano(caminhoArquivo) {
+
+//     console.log(`Abrindo ${caminhoArquivo} com o nano...`);
+    
+//     const comando = `nano ${caminhoArquivo}`;
+//     const resultado = shell.exec(comando, { silent: false });
+    
+//     if (resultado.code !== 0) {
+//         console.error('Erro ao abrir o arquivo com o nano');
+//         process.exit(1);
+//     }
+// }
+
+// Função para mover o arquivo para o diretório /usr/local
+function moverParaLocal(caminhoArquivo, nomeAcao) {
+
+    // Caminho final onde o arquivo será movido
+    const actionsDirectory = '/usr/local/share/pcmanfm-qt/actions'
+    const caminhoDestino = path.join(actionsDirectory + '/', nomeAcao + '.desktop');
+    
+    // Criar o diretório de destino se não existir
+    if (!fs.existsSync(path.dirname(caminhoDestino))) {
+        console.log(`Criando diretório de destino: ${path.dirname(caminhoDestino)}`);
+        shell.mkdir('-p', path.dirname(caminhoDestino));
+    }
+    
+    // Mover o arquivo
+    shell.mv(caminhoArquivo, caminhoDestino);
+    console.log(`Arquivo movido para ${caminhoDestino}`);
+}
+
+// Função principal
+function main() {
+    const rl = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout
+    });
+
+    rl.question('Digite o nome da ação: ', (nomeAcao) => {
+        // Criar o arquivo de ação
+        const caminhoArquivo = criarArquivoDeAcao(nomeAcao);
+
+        // Abrir o arquivo com nano
+        // abrirComNano(caminhoArquivo);
+
+        // Mover o arquivo para /usr/local
+        moverParaLocal(caminhoArquivo, nomeAcao);
+
+        rl.close();
+    });
+}
+
+// Iniciar a CLI
+main();
+

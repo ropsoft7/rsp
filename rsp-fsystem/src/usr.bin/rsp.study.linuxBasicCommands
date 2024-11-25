@@ -1,0 +1,183 @@
+#!/bin/bash
+
+# Define o caminho do arquivo JSON para salvar o progresso
+PROGRESS_FILE="$HOME/.local/var/studify/commands/progress.json"
+
+# Cria o diretório de progresso, se não existir
+mkdir -p "$(dirname "$PROGRESS_FILE")"
+
+# Função para inicializar o arquivo de progresso, se não existir
+initialize_progress() {
+    if [ ! -f "$PROGRESS_FILE" ]; then
+        echo "{}" > "$PROGRESS_FILE"
+    fi
+}
+
+# Função para exibir o progresso do comando
+show_progress() {
+    local cmd_index=$1
+    local progress
+    progress=$(jq -r ".\"$cmd_index\"" "$PROGRESS_FILE")
+    if [ "$progress" != "null" ]; then
+        # Adiciona cores baseadas no progresso
+        case "$progress" in
+            33) echo -e "Progresso do comando $cmd_index: \033[33m$progress%\033[0m (Amarelo)" ;;
+            66) echo -e "Progresso do comando $cmd_index: \033[34m$progress%\033[0m (Azul)" ;;
+            99) echo -e "Progresso do comando $cmd_index: \033[32m$progress%\033[0m (Verde)" ;;
+            100) echo -e "Progresso do comando $cmd_index: \033[32m$progress%\033[0m (Completo)" ;;
+            *) echo "Progresso do comando $cmd_index: $progress%" ;;
+        esac
+    else
+        echo "Progresso do comando $cmd_index não encontrado."
+    fi
+}
+
+# Função para atualizar o progresso de um comando
+update_progress() {
+    local cmd_index=$1
+    local progress=$2
+    if [[ "$progress" =~ ^(33|66|99|100)$ ]]; then
+        jq ".\"$cmd_index\" = \"$progress\"" "$PROGRESS_FILE" > temp.json && mv temp.json "$PROGRESS_FILE"
+        echo "Progresso do comando $cmd_index atualizado para $progress%."
+    else
+        echo "Valor inválido para o progresso. Use 33, 66, 99 ou 100."
+    fi
+}
+
+# Define os comandos e seus exemplos
+declare -A comandos
+comandos=(
+    ["1"]="echo - Exibe uma mensagem ou valor de variável - Exemplo: echo \"Hello, World!\""
+    ["2"]="cat - Exibe o conteúdo de arquivos - Exemplo: cat arquivo1.txt"
+    ["3"]="tar - Arquiva e compacta arquivos - Exemplo: tar -cvf arquivo.tar /home/usuario/"
+    ["4"]="zip - Compacta arquivos em formato .zip - Exemplo: zip arquivo.zip arquivo1.txt"
+    ["5"]="unzip - Descompacta arquivos .zip - Exemplo: unzip arquivo.zip"
+    ["6"]="head - Exibe as primeiras linhas de um arquivo - Exemplo: head arquivo1.txt"
+    ["7"]="tail - Exibe as últimas linhas de um arquivo - Exemplo: tail arquivo1.txt"
+    ["8"]="wget - Baixa arquivos da web - Exemplo: wget http://exemplo.com/arquivo.tar"
+    ["9"]="htop - Exibe informações interativas sobre processos - Exemplo: htop"
+    ["10"]="stat - Exibe informações detalhadas sobre arquivos - Exemplo: stat arquivo1.txt"
+    ["11"]="df - Exibe o uso de espaço em disco - Exemplo: df -h"
+    ["12"]="du - Exibe o uso de espaço em disco de arquivos/diretórios - Exemplo: du -sh /home/usuario/"
+    ["13"]="whoami - Exibe o nome do usuário atual - Exemplo: whoami"
+    ["14"]="uptime - Exibe o tempo de atividade do sistema - Exemplo: uptime"
+    ["15"]="man - Exibe o manual de um comando - Exemplo: man ls"
+    ["16"]="history - Exibe o histórico de comandos executados - Exemplo: history"
+    ["17"]="alias - Cria atalhos para comandos - Exemplo: alias ll='ls -l'"
+    ["18"]="id - Exibe o ID de usuário e grupo - Exemplo: id"
+    ["19"]="grep - Procura por padrões em arquivos - Exemplo: grep 'palavra' arquivo.txt"
+    ["20"]="sed - Realiza edições em fluxo de dados - Exemplo: sed 's/old/new/' arquivo.txt"
+    ["21"]="cut - Extrai seções de linhas de arquivos - Exemplo: cut -d':' -f1 /etc/passwd"
+    ["22"]="sort - Classifica linhas de texto - Exemplo: sort arquivo.txt"
+    ["23"]="wc - Conta palavras, linhas e caracteres em um arquivo - Exemplo: wc arquivo.txt"
+    ["24"]="shutdown - Desliga o sistema - Exemplo: shutdown -h now"
+    ["25"]="reboot - Reinicia o sistema - Exemplo: reboot"
+    ["26"]="service - Gerencia serviços do sistema - Exemplo: service apache2 restart"
+    ["27"]="systemctl - Controla o systemd e seus serviços - Exemplo: systemctl status nginx"
+    ["28"]="chmod - Modifica permissões de arquivos e diretórios - Exemplo: chmod 755 arquivo.sh"
+    ["29"]="ps - Exibe informações sobre processos em execução - Exemplo: ps aux"
+    ["30"]="kill - Envia sinais para processos (por padrão, envia um sinal de término) - Exemplo: kill 1234"
+    ["31"]="nano - Editor de texto simples no terminal - Exemplo: nano arquivo.txt"
+    ["32"]="mkdir - Cria diretórios - Exemplo: mkdir novo_diretorio"
+    ["33"]="rmdir - Remove diretórios vazios - Exemplo: rmdir diretorio_vazio"
+    ["34"]="find - Busca arquivos e diretórios no sistema - Exemplo: find /home -name \"arquivo.txt\""
+    ["35"]="chown - Altera o proprietário e grupo de arquivos ou diretórios - Exemplo: chown usuario:grupo arquivo.txt"
+    ["36"]="ln - Cria links (links simbólicos ou duros) - Exemplo: ln -s /path/to/original /path/to/link"
+    ["37"]="clear - Limpa a tela do terminal - Exemplo: clear"
+    ["38"]="hostname - Exibe ou define o nome do host do sistema - Exemplo: hostname"
+    ["39"]="date - Exibe ou define a data e hora do sistema - Exemplo: date"
+    ["40"]="who - Exibe os usuários logados no sistema - Exemplo: who"
+    ["41"]="last - Exibe o histórico de logins de usuários - Exemplo: last"
+    ["42"]="exit - Fecha a sessão do terminal ou script - Exemplo: exit"
+)
+
+# Função para obter o índice a partir do nome do comando
+get_index_from_name() {
+    local cmd_name=$1
+    for key in "${!comandos[@]}"; do
+        if [[ "${comandos[$key]}" == *"$cmd_name"* ]]; then
+            echo "$key"
+            return
+        fi
+    done
+    echo "Comando não encontrado."
+}
+
+# Função para listar os comandos por índice com o progresso
+list_comandos() {
+    echo "Comandos disponíveis por índice:"
+    for indice in "${!comandos[@]}"; do
+        # Obtém o progresso do comando do arquivo de progresso
+        local progress
+        progress=$(jq -r ".\"$indice\"" "$PROGRESS_FILE")
+
+        # Exibe o comando com a cor correspondente ao progresso
+        case "$progress" in
+            33) echo -e "$indice - ${comandos[$indice]} \033[33m(33% - Amarelo)\033[0m" ;;
+            66) echo -e "$indice - ${comandos[$indice]} \033[34m(66% - Azul)\033[0m" ;;
+            99) echo -e "$indice - ${comandos[$indice]} \033[32m(99% - Verde)\033[0m" ;;
+            100) echo -e "$indice - ${comandos[$indice]} \033[32m(100% - Completo)\033[0m" ;;
+            *) echo "$indice - ${comandos[$indice]} (Sem progresso definido)" ;;
+        esac
+    done
+}
+
+# Função para obter um comando específico pelo índice ou nome
+get_comando() {
+    local cmd_id_or_name=$1
+    if [[ "$cmd_id_or_name" =~ ^[0-9]+$ ]]; then
+        # Se for índice
+        echo "${comandos[$cmd_id_or_name]}"
+        cmd=$(echo "${comandos[$cmd_id_or_name]}" | cut -d'-' -f2 | awk '{$1=$1};1')
+        echo "Executando comando de exemplo: $cmd"
+        eval "$cmd"
+    else
+        # Se for nome
+        cmd_index=$(get_index_from_name "$cmd_id_or_name")
+        if [[ "$cmd_index" != "Comando não encontrado." ]]; then
+            get_comando "$cmd_index"
+        else
+            echo "$cmd_index"
+        fi
+    fi
+}
+
+# Função para tentar executar um comando fornecido diretamente
+try_comando() {
+    echo "Executando comando: $1"
+    eval "$1"
+}
+
+# Inicia o arquivo de progresso
+initialize_progress
+
+# Lógica de subcomandos
+case "$1" in
+    list)
+        list_comandos
+        ;;
+    get)
+        if [[ -n "$2" ]]; then
+            get_comando "$2"
+        else
+            echo "Por favor, forneça o índice ou o nome do comando."
+        fi
+        ;;
+    try)
+        if [[ -n "$2" ]]; then
+            try_comando "$2"
+        else
+            echo "Por favor, forneça o comando para tentar."
+        fi
+        ;;
+    update)
+        if [[ -n "$2" && -n "$3" ]]; then
+            update_progress "$2" "$3"
+        else
+            echo "Uso: $0 update <comando_index> <progresso>"
+        fi
+        ;;
+    *)
+        echo "Uso: $0 {list|get|try|update} [comando]"
+        ;;
+esac

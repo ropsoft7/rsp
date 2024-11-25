@@ -1,0 +1,5 @@
+#!/bin/bash
+
+distrobox create --home /home/ozzy/.dboxhomes/lxqt -n lxqt -i docker.io/library/debian:12 --init-hooks \
+	    --init-hooks "sudo apt install lxqt-core"
+exit 0;

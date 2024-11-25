@@ -1,0 +1,20 @@
+/* Estilo para barras de ferramentas (QToolBar) 
+QToolBar {
+    margin: 6px; /* Margem ao redor da toolbar */
+    margin-top: 1px; 
+    margin-left: 1px;
+    spacing: 3px; /* Espaçamento entre os itens na toolbar */
+} */
+
+/* Ícones e botões na toolbar 
+QToolButton {
+    /* background-color: rgba(0,0,0,0.3); */
+    padding: 3px; /* Espaço interno ao redor dos ícones/botões */
+    margin: 6px; /* Margem ao redor da toolbar */
+    margin-left: 1px;
+}*/
+
+QToolBar {
+      border-bottom: 0;
+      margin-bottom: 14px;
+}

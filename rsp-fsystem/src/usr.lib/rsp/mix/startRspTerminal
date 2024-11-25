@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# Array com os serviços de display managers mais comuns
+display_managers=("gdm" "sddm" "lightdm" "kdm" "xdm")
+
+# Função para encerrar a sessão gráfica atual e parar DMs
+encerrar_sessao_grafica() {
+
+    echo "Verificando e encerrando possíveis display managers..."
+    
+    for dm in "${display_managers[@]}"; do
+        if systemctl is-active --quiet "$dm"; then
+            echo "Encerrando $dm..."
+            sudo systemctl stop "$dm"
+        fi
+    done
+
+    # Encerrando sessão gráfica com loginctl se ainda estiver ativa
+    if loginctl list-sessions | grep -q 'seat0'; then
+        session_id=$(loginctl list-sessions --no-legend | grep 'seat0' | awk '{print $1}')
+        echo "Encerrando sessão gráfica com ID $session_id..."
+        loginctl terminate-session "$session_id"
+    else
+        echo "Nenhuma sessão gráfica ativa encontrada."
+    fi
+}
+
+# Encerra a sessão gráfica
+encerrar_sessao_grafica
+
+# Verifica se a mudança para TTY foi bem-sucedida
+echo "Mudando para TTY 1..."
+if sudo chvt 1; then
+    echo "Sessão TTY iniciada em TTY 1"
+else
+    echo "Erro ao mudar para TTY 1. Verifique permissões ou estado do sistema."
+fi

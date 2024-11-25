@@ -1,0 +1,14 @@
+	[Desktop Entry]
+Type=Action
+Name=Set as wallpaper
+Name[it]=Usa come sfondo
+Name[nl]=Instellen als achtergrond
+Name[ru]=Установить в качестве обоев
+Icon=user-desktop
+Profiles=profile-zero;
+
+[X-Action-Profile profile-zero]
+MimeTypes=image/*;
+Exec=pcmanfm-qt --wallpaper-mode=stretch -w %f
+Name=Default profile
+SelectionCount==1

@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# Prompt for custom greetings
+echo "Enter your custom greeting message for the GRUB boot screen:"
+read -r CUSTOM_GREETING
+
+# Check if the greeting is not empty
+if [ -z "$CUSTOM_GREETING" ]; then
+  echo "No greeting provided, using default 'Welcome' message."
+  CUSTOM_GREETING="Welcome to your system!"
+fi
+
+# Ensure GRUB settings are configured to hide default boot logs
+echo "Customizing GRUB to show only your greeting message and hide default boot logs..."
+
+# Disable GRUB's verbose output by setting 'quiet' and 'loglevel=0'
+sudo sed -i 's|^GRUB_CMDLINE_LINUX_DEFAULT=".*"|GRUB_CMDLINE_LINUX_DEFAULT="quiet splash loglevel=0"|' /etc/default/grub
+
+# Set custom greeting in GRUB using GRUB_CMDLINE_LINUX
+echo "GRUB_CMDLINE_LINUX=\"console=tty1 splash loglevel=0\" GRUB_GFXPAYLOAD_LINUX=keep" | sudo tee -a /etc/default/grub > /dev/null
+
+# Modify GRUB configuration to display the custom greeting
+sudo sed -i "s|^#GRUB_TERMINAL=|GRUB_TERMINAL=console\nGRUB_HIDDEN_TIMEOUT=0\nGRUB_TIMEOUT=0\nGRUB_BACKGROUND=/boot/grub/background.png\nGRUB_GFXMODE=auto\nGRUB_LOGO=${CUSTOM_GREETING}|" /etc/default/grub
+
+# Regenerate GRUB configuration
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+# Inform the user and reboot
+echo "Your custom greeting has been set! Rebooting to apply changes within 10sec"
+echo If ou do not want to reboot fire CONTROL + C
+
+sudo reboot
+

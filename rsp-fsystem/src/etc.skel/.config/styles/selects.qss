@@ -1,0 +1,7 @@
+QComboBox {
+    margin: 3px;
+    padding: 6px;
+    padding-bottom: 10px;
+    border-top: 1px solid #4e5452;
+    background-color: rgba(0,0,0,0.15);
+}

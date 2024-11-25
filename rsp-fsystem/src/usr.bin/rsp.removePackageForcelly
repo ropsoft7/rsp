@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# Check if the package name is provided
+if [ $# -ne 2 ]; then
+    echo "Usage: $0 <package_name> <install_prefix>"
+    exit 1
+fi
+
+PACKAGE_NAME="$1"
+INSTALL_PREFIX="$2"
+
+# Remove binary files
+echo "Removing binary files for $PACKAGE_NAME..."
+find "$INSTALL_PREFIX/bin" -name "$PACKAGE_NAME*" -exec rm -f {} \;
+
+# Remove library files
+echo "Removing library files for $PACKAGE_NAME..."
+find "$INSTALL_PREFIX/lib" -name "lib$PACKAGE_NAME*" -exec rm -f {} \;
+
+# Remove include files
+echo "Removing include files for $PACKAGE_NAME..."
+find "$INSTALL_PREFIX/include" -name "$PACKAGE_NAME*" -exec rm -f {} \;
+
+# Remove documentation files
+echo "Removing documentation files for $PACKAGE_NAME..."
+find "$INSTALL_PREFIX/share/doc" -name "$PACKAGE_NAME*" -exec rm -rf {} \;
+
+# Remove other related files
+echo "Removing other related files for $PACKAGE_NAME..."
+find "$INSTALL_PREFIX/share" -name "$PACKAGE_NAME*" -exec rm -rf {} \;
+
+echo "Removal of $PACKAGE_NAME completed."
+

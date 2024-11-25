@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Verifica se um argumento foi fornecido
+if [ "$#" -eq 0 ]; then
+  echo "Uso: $0 <valor_do_brilho|show>"
+  exit 1
+fi
+
+# Verifica se o argumento é "show"
+if [ "$1" = "show" ]; then
+  brightnessctl g
+  exit 0
+fi
+
+# Verifica se o argumento é um número
+if [[ "$1" =~ ^[0-9]+$ ]]; then
+  # Ajusta o brilho para o valor especificado
+  /usr/bin/brightnessctl set "${1}"%
+ /usr/local/bin/rsp-backlight_backend "$1"000;
+else
+  echo "Erro: O argumento deve ser um número (0-100) ou 'show'."
+  exit 1
+fi

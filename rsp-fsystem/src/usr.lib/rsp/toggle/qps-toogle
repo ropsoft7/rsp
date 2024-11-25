@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Se tiver daemon estiver rodando...
+if pgrep -x "qps" > /dev/null; then
+   pkill qps
+else
+    qps
+fi
+
+exit 0;

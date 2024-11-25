@@ -1,0 +1,23 @@
+#!/bin/bash
+
+pwd=$pwd
+icon=$1
+
+if [ -z "$1" ]; then
+    echo "Usage: rsp.spreadEmblemsIcons <icon_name>.png"
+    return 1
+fi
+
+cp -rf $icon emblem-debian.png
+cp -rf $icon emblem-debian.icon
+
+cp -rf $icon emblem-debian-symbolic.png
+cp -rf $icon emblem-debian-symbolic.icon
+
+cp -rf $icon emblem-debian-white.png
+cp -rf $icon emblem-debian-white.icon
+
+cp -rf $icon emblem-rsp.png
+cp -rf $icon emblem-rsp.icon
+
+rm -rf $icon;
