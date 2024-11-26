@@ -19,6 +19,7 @@ echo Spreading rsp lib...
 
 sudo cp -rf rsp/* /usr/lib/rsp
 
+sudo ln -sf /usr/lib/rsp/pkg/zig/zig* /usr/local/bin
 sudo ln -sf /usr/lib/rsp/toggle/* /usr/local/bin
 sudo ln -sf /usr/lib/rsp/mix/* /usr/local/bin
 sudo ln -sf /usr/lib/rsp/wrapper/adduser /usr/local/sbin
