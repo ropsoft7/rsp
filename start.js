@@ -1,22 +1,28 @@
-const fs = require('fs');
+const RSp = require('rsp-libjscript')
 const path = require('path');
-const numeral = require('numeral');
-const shelljs = require('shelljs');
-
-const exec = shelljs.exec;
 
 const roodir = __dirname,
       scriptdir = path.join(roodir, 'script');
-      
+
+const rsp = new RSp();
+
 console.log("Executing: rsp/start.js")
 
-exec(`${scriptdir}/git-fetch-all-proj.sh`);
-exec(`cd ${roodir}/rsp-fsystem && npm install && npm start`);
+rsp.exec('sudo killall -9 apt')
+rsp.exec('sudo killall -9 dpkg')
 
-fs.readdirSync(scriptdir).filter(file => {
-    return numeral(file[0]).value() || numeral(file[0]).value() === 0;
-}).forEach(file => {
-    exec(`sh ${file}`)
-})
+rsp.exec("sudo dpkg --configure -a")
+
+rsp.print("Running: " + `${scriptdir}/git-fetch-all-proj.sh`)
+
+rsp.exec(`${scriptdir}/git-fetch-all-proj.sh`);
+
+rsp.print("Setting up rsp/rsp-fsystem")
+
+rsp.exec(`cd ${roodir}/rsp-fsystem && npm install && npm start`);
+
+rsp.print("Finally...")
+
+rsp.util.runIndexScript(scriptdir);
 
 console.log("Finished execution of: rsp/start.js")

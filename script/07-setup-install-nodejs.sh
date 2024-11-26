@@ -12,6 +12,10 @@ echo "Installing Node.js 18 from n..."
 
 sudo n 18;
 
+echo "Removing non local node & npm binaries"
+
+sudo apt remove nodejs npm -y;
+
 echo "Installing global npm packages from npm..."
 
 sudo npm install -g pm2;

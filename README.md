@@ -1,5 +1,3 @@
-
-⥄
             * TEST FIRST NO METTAR HOW BEFORE ALL
             * write API FIRST!!!
 ==================================================================
@@ -8,28 +6,30 @@
 13. * INDO - ESTUDAR PARA O LPI 01016
 
 ==================================================================
-bota @denit NO ALIASES
-SCREENLOCKER ou timer off to logout
 
+SYNC $USER > ~/Space/development/rsp/rsp-fsystem/src/etc.skel
+INDO - criar o adduser wrapper + TESTAR com merge de skel
+INDO - SCREENLOCKER ou timer off to logout
+
+bota @denit NO ALIASES
+INDO - 10. sincronizar skel 
+ 
 11 - Pendrive(CD-ROM) @rsp 71
 
                             ~ Mínima Usabilidade  
 
-      - 10. sincronizar skel 
-
+     
          OK - + Muda tema osh
          OK - 55 por enquanto usar o rspctl como está (e terminar implementação)
          OK - 2. remove oq n tiver sendo usado (pacotes)
          OK - 100. terminar rsp-workspace + alinhar/terminar projs subjacentes
                  
-          INDO - 84 - Trimar e renomear os temas para dos a costomizacao geral na next minor
-          INDO - 10  criar o adduser wrapper
-        
+          OK - Trimar e renomear os temas para dos a costomizacao geral na next minor
+
          OK - 1. qterm padrao
          OK - passar para padrao os .desktops de rsp-config center para RSp Settings
          OK - 3  deixar barras autohide (por neuqnato depos vai ajeitar na integracao do rx.xml)
-          - 4. qterm-dropdown na key META
-          - 44 winskip mouskeybind de top left 
+         OK - qterm-dropdown na key META
          OK - 444 voltar switcher mas sem quadrado
          OK - 5. - Desabilitar coredump
          OK - 6. Ajeitar O MINIMO DA librspls 
@@ -53,7 +53,16 @@ SCREENLOCKER ou timer off to logout
 
 
 <next-version @minor>
+INDO - winskip mouskeybind de top left
 
+   Webdav; Usar para futura funcionalidade de sincronia de conta no rsp tipo big cloud
+    Diminuir quantidade de Scripts em arquivos do projeto 
+    - migrar os menores para bloco de Makefile
+    Script backup de usuário íntegro portável e descentralizado do Android via adb
+    
+    botar margem na maximizacoa de todas as janelas para que funcione o xdotool no corner mouse
+
+  -/ECT/environment proxies
   - Terminar customização paleta gray no tema Ambient (gRAYLANDS padrão)
 
   - ENTRADAS DE acacao no pcmanfm-qt terminar
