@@ -9,6 +9,7 @@ cd usr.share
 
 echo Removing current share asset...
 
+sudo rm -rf /usr/share/base-files/rsp
 sudo rm -rf /usr/share/file-manager/rsp-*
 sudo rm -rf /usr/share/grub/rsp
 sudo rm -rf /usr/share/icons/rsp
@@ -20,6 +21,7 @@ sudo rm -rf /usr/share/xsessions/rsp-*
 
 echo Ensuring existence of directories...
 
+sudo mkdir -p /usr/share/base-files/rsp
 sudo mkdir -p /usr/share/file-manager
 sudo mkdir -p /usr/share/grub/rsp
 sudo mkdir -p /usr/share/icons/rsp
@@ -31,6 +33,7 @@ sudo mkdir -p /usr/share/xsessions
 
 echo Spreading source share asset...
 
+sudo cp -rf base-files/* /usr/share/base-files
 sudo cp -rf file-manager/* /usr/share/file-manager
 sudo cp -rf grub/* /usr/share/grub
 sudo cp -rf icons/* /usr/share/icons

@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=proj
-GenericName=
-Comment=
-Exec=code /home/@NewUser/Space/frontend/development/rsp/rsp.code-workspace
-Type=Application
-Icon=/usr/share/icons/rsp/333.png
-Terminal=false

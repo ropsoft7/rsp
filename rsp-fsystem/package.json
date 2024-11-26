@@ -17,6 +17,8 @@
     "setup-lib": "bash script/42-setup-lib.sh",
     "setup-bins": "bash script/07-setup-bins.sh",
     "setup-proman": "bash script/35-setup-proman.sh",
+    "sync-skel": "npm run sync-user-skel && npm run setup-skel",
+    "sync-user-skel": "./script/sync-user-skel.js",
     "create-bin": "bash script/create-bin.sh",
     "create-sbin": "bash script/create-sbin.sh",
     "unset-bin": "sudo rm -rf /usr/local/bin/rsp.*"
