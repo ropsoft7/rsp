@@ -97,20 +97,8 @@ fi
 COMPIFY_EXECUTABLE=`which compify`
 
 if [ -x "$COMPIFY_EXECUTABLE" ]; then
-    
-    # Version comparison fix
-    COMPIFY_VERSION=$("$COMPIFY_EXECUTABLE" --version | grep -oP '(\d+\.?)+')
-    COMPIFY_MAJOR=$(echo "$COMPIFY_VERSION" | cut -d '.' -f1)
-    COMPIFY_MINOR=$(echo "$COMPIFY_VERSION" | cut -d '.' -f2)
-
-    if [[ "$COMPIFY_MAJOR" -eq 0 && "$COMPIFY_MINOR" -lt 7 ]]; then
-        echo "Compify version is less than 0.7.2."
-        exec "$COMPIFY_EXECUTABLE" -C "$XDG_CONFIG_HOME/compify" -s /usr/lib/rsp/desktop/startRspDesktopWaylandPost
-    else
-        echo "Compify version is 0.7.2 or higher."
-        exec "$COMPIFY_EXECUTABLE" -C "$XDG_CONFIG_HOME/compify" -S /usr/lib/rsp/desktop/startRspDesktopWaylandPost
-    fi
-
+    "$COMPIFY_EXECUTABLE" -C "$XDG_CONFIG_HOME/compify" -S /usr/lib/rsp/desktop/startRspDesktopWaylandPost > /dev/null;
+     /usr/local/bin/rsp-sudo pkill login --platform offscreen;
 else
     echo "compify not found. Please install compify. Exiting."
 fi

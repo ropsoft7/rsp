@@ -7,4 +7,4 @@ source /usr/lib/rsp/desktop/startRspDesktopWaylandEnv;
 #/usr/local/bin/rsp-panel --platform xcb --config "$HOME"/.config/rsp/panel-xcb.conf &
 #/usr/local/bin/nm-applet;
 
-exec /usr/local/bin/rsp-session;
+/usr/local/bin/rsp-session;

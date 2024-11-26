@@ -1,2 +1,0 @@
-#!/bin/bash
-gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4  -dNOPAUSE -dQUIET -dBATCH -sOutputFile=$1.resized $1

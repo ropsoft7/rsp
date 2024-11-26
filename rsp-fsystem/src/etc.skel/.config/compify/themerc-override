@@ -18,15 +18,3 @@ window.active.shadow.size: 210
 window.inactive.shadow.size: 140
 window.active.shadow.color: #000000
 window.inactive.shadow.color: #000000
-
-# osd.border.width: 10
-# osd.bg.color: #0A0A0Ae1
-# osd.border.color: #2C2C2Cf1
-# osd.label.text.color: #e1e1e1
-# osd.workspace-switcher.boxes.width: 30
-# osd.workspace-switcher.boxes.height: 30
-# osd.window-switcher.width: 450
-# osd.window-switcher.padding: 15
-# osd.window-switcher.item.padding.x: 15
-# osd.window-switcher.item.padding.y: 15
-# osd.window-switcher.item.active.border.width: 10

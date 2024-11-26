@@ -29,8 +29,8 @@ window.label.text.justify: Center
 
 # Active window
 window.active.title.bg: Raised Vertical Gradient
-window.active.title.bg.color: #303030
-window.active.title.bg.colorTo: #303030
+window.active.title.bg.color: #2b2b2b
+window.active.title.bg.colorTo: #2b2b2b
 
 window.active.label.bg: Parentrelative
 window.active.label.text.color: #ffffff

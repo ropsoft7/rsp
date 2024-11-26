@@ -5,13 +5,13 @@
   <keyboard>
     <default/>
     <keybind key="A-Space">
-      <action name="Execute" command="/usr/lib/rsp/toggle/spotrun-toggle"/>
+      <action name="Execute" command="/usr/lib/rsp/toggle/spotrunVisibility"/>
     </keybind>
     <keybind key="A-Delete">
       <action name="Execute" command="/usr/local/bin/rsp-leave"/>
     </keybind>
     <keybind key="C-A-Delete">
-      <action name="Execute" command="/usr/local/bin/qps"/>
+      <action name="Execute" command="/usr/local/bin/qpsRuntime"/>
     </keybind>
     <keybind key="Print">
       <action name="Execute" command="/usr/local/bin/rsp.printScreen"/>
@@ -28,7 +28,6 @@
       <action name="Execute" command="pkill -f 'qterminal --drop'"/>
     </keybind>
   </keyboard>
-
   <theme>
     <cornerRadius>5</cornerRadius>
     <name>RspAdwaitaDark</name>
