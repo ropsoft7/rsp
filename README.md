@@ -7,9 +7,6 @@
 
 ==================================================================
 
-OK > ~/Space/development/rsp/rsp-fsystem/src/etc.skel
-OK - criar o adduser wrapper + TESTAR com merge de skel
-INDO - SCREENLOCKER ou timer off to logout
 
  
 11 - Pendrive(CD-ROM) @rsp 71
@@ -31,6 +28,10 @@ INDO - SCREENLOCKER ou timer off to logout
          OK - 7. Voltar cursor breeze white
          OK - 5.  Usr share osh 
          OK - 9 Tuidm
+         OK > ~/Space/development/rsp/rsp-fsystem/src/etc.skel
+          OK - criar o adduser wrapper + TESTAR com merge de skel
+          OK - SCREENLOCKER ou timer off to logout
+
 
 <todo-list>
 
