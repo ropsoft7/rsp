@@ -11,10 +11,10 @@
       <action name="Execute" command="/usr/local/bin/rsp-leave"/>
     </keybind>
     <keybind key="C-A-Delete">
-      <action name="Execute" command="/usr/local/bin/qpsRuntime"/>
+      <action name="Execute" command="/usr/lib/rsp/toggle/qpsRuntime"/>
     </keybind>
     <keybind key="Print">
-      <action name="Execute" command="/usr/local/bin/rsp.printScreen"/>
+      <action name="Execute" command="/usr/lib/rsp/mix/takeScreenshot"/>
     </keybind>
     <keybind key="A-Return">
       <action name="Execute" command="/usr/local/bin/qterminal --drop"/>
