@@ -7,25 +7,20 @@
 
 ==================================================================
 
-SYNC $USER > ~/Space/development/rsp/rsp-fsystem/src/etc.skel
-INDO - criar o adduser wrapper + TESTAR com merge de skel
+OK > ~/Space/development/rsp/rsp-fsystem/src/etc.skel
+OK - criar o adduser wrapper + TESTAR com merge de skel
 INDO - SCREENLOCKER ou timer off to logout
 
-bota @denit NO ALIASES
-INDO - 10. sincronizar skel 
  
 11 - Pendrive(CD-ROM) @rsp 71
 
                             ~ Mínima Usabilidade  
 
-     
          OK - + Muda tema osh
          OK - 55 por enquanto usar o rspctl como está (e terminar implementação)
          OK - 2. remove oq n tiver sendo usado (pacotes)
          OK - 100. terminar rsp-workspace + alinhar/terminar projs subjacentes
-                 
-          OK - Trimar e renomear os temas para dos a costomizacao geral na next minor
-
+         OK - Trimar e renomear os temas para dos a costomizacao geral na next minor
          OK - 1. qterm padrao
          OK - passar para padrao os .desktops de rsp-config center para RSp Settings
          OK - 3  deixar barras autohide (por neuqnato depos vai ajeitar na integracao do rx.xml)
@@ -53,7 +48,9 @@ INDO - 10. sincronizar skel
 
 
 <next-version @minor>
-INDO - winskip mouskeybind de top left
+
+- bota @denit NO ALIASES
+- winskip mouskeybind de top left
 
    Webdav; Usar para futura funcionalidade de sincronia de conta no rsp tipo big cloud
     Diminuir quantidade de Scripts em arquivos do projeto 
