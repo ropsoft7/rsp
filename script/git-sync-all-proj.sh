@@ -66,4 +66,10 @@ git add .
 git commit -m save
 git push origin main
 
+cd rsp-wspace
+
+git add .
+git commit -m save
+git push origin main
+
 exit 0;

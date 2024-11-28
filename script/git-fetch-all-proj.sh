@@ -24,5 +24,7 @@ git clone git@github.com:ropsoft7/rsp-projman.git
 git clone git@github.com:ropsoft7/rsp-fsystem.git
 git clone git@github.com:ropsoft7/rsp-isolinux.git
 git clone git@github.com:ropsoft7/rsp-libjscript.git
+git clone git@github.com:ropsoft7/rsp-wspace.git
+
 
 exit 0

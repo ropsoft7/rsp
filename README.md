@@ -43,7 +43,7 @@
       - por indexação de opções 
       - compilar adição de enteadas nas listas do README 
        - cli de criação de entradas de ação de files e dirs de click pcmanfmqt
-
+BretDoyle.javascript-extensions-pack---js-essentials
 
 </todo-list>
 
