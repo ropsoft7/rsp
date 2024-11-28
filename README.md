@@ -13,6 +13,7 @@
 
                             ~ Mínima Usabilidade  
 
+         INDO - ISOLINUX
          OK - + Muda tema osh
          OK - 55 por enquanto usar o rspctl como está (e terminar implementação)
          OK - 2. remove oq n tiver sendo usado (pacotes)
@@ -29,55 +30,48 @@
          OK - 5.  Usr share osh 
          OK - 9 Tuidm
          OK > ~/Space/development/rsp/rsp-fsystem/src/etc.skel
-          OK - criar o adduser wrapper + TESTAR com merge de skel
-          OK - SCREENLOCKER ou timer off to logout
+         OK - criar o adduser wrapper + TESTAR com merge de skel
+         OK - Background de screenlock
+         OK - Serviço de screenlock
+         OK - Power manager
 
 
 <todo-list>
 
-
-        sempre anota os feats da next version 
-        simplifica essa merda de qterm dropdown
+      - sempre anota os feats da next version 
+      - simplifica essa merda de qterm dropdown
       - Rsp-config-nm-spplet > nm-applet
       - cli de run rsp scripts quaker canto
       - por indexação de opções 
       - compilar adição de enteadas nas listas do README 
-       - cli de criação de entradas de ação de files e dirs de click pcmanfmqt
-BretDoyle.javascript-extensions-pack---js-essentials
+      - cli de criação de entradas de ação de files e dirs de click pcmanfmqt
 
 </todo-list>
 
 
 <next-version @minor>
 
-- bota @denit NO ALIASES
-- winskip mouskeybind de top left
-
-   Webdav; Usar para futura funcionalidade de sincronia de conta no rsp tipo big cloud
-    Diminuir quantidade de Scripts em arquivos do projeto 
-    - migrar os menores para bloco de Makefile
-    Script backup de usuário íntegro portável e descentralizado do Android via adb
-    
-    botar margem na maximizacoa de todas as janelas para que funcione o xdotool no corner mouse
-
-  -/ECT/environment proxies
+  - bota @denit NO ALIASES
+  - winskip mouskeybind de top left
+  - Webdav; Usar para futura funcionalidade de sincronia de conta no rsp tipo big cloud
+  - Diminuir quantidade de Scripts em arquivos do projeto 
+  - migrar os menores para bloco de Makefile
+  - Script backup de usuário íntegro portável e descentralizado do Android via adb
+  - botar margem na maximizacoa de todas as janelas para que funcione o xdotool no corner mouse
+  - /ect/environment proxies
   - Terminar customização paleta gray no tema Ambient (gRAYLANDS padrão)
-
-  - ENTRADAS DE acacao no pcmanfm-qt terminar
-      em: 
-        - rsp-fsystem/src/usr.lib/rsp/action/
-        - rsp-fsystem/src/usr.share/file-manager/
   - Terminar launcher de webapp e por em Space/model/ + por pra syste-mwide geral
-
-  ~rsp-libjavascript - integracao com wrappers de /bins em .js programatico
-  -
-  ~Integrar a lxqtpsnel com a spi XML do Labwc
-  ~Setup da sddmá
-  ~Tela sddm logo superior direita 
-  ~O plymuth maldito
-  ~Atualização de skel
-  ~DEFINICAO de MODO de rspctl services on login
-  ~Mete os .qss nos temas diretamente conforme o padrão de scaffolding 
+  - rsp-libjavascript - integracao com wrappers de /bins em .js programatico
+  - Integrar a lxqtpsnel com a spi XML do Labwc
+  - Setup da sddmá
+  - Tela sddm logo superior direita 
+  - O plymuth maldito
+  - Atualização de skel
+  - DEFINICAO de MODO de rspctl services on login
+  - Mete os .qss nos temas diretamente conforme o padrão de scaffolding 
+  - ENTRADAS DE acacao no pcmanfm-qt terminar em: 
+      - rsp-fsystem/src/usr.lib/rsp/action/
+      - rsp-fsystem/src/usr.share/file-manager/
 
 </next-version>
 

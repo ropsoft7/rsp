@@ -4,9 +4,9 @@
   "description": "",
   "scripts": {
     "start": "yes | node start.js",
-    "git:sync:all:proj": "./script/git-sync-all-proj.sh",
-    "git:check:all:proj": "sudo ./script/git-check-all-proj.sh",
-    "git:fetch:all:proj": "./script/git-fetch-all-proj.sh"
+    "git-sync-all-proj": "./script/git-sync-all-proj.sh",
+    "git-check-all-proj": "sudo ./script/git-check-all-proj.sh",
+    "git-fetch-all-proj": "./script/git-fetch-all-proj.sh"
   },
   "dependencies": {
     "numeral": "^2.0.6",

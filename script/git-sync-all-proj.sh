@@ -65,9 +65,16 @@ cd rsp-libjscript
 git add .
 git commit -m save
 git push origin main
+cd ..;
 
-cd rsp-wspace
+cd rsp-vspaces
 
+git add .
+git commit -m save
+git push origin main
+cd ..;
+
+# Root dir
 git add .
 git commit -m save
 git push origin main
