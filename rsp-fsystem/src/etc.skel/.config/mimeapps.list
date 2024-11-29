@@ -19,3 +19,4 @@ inode/symlink=code.desktop;
 x-scheme-handler/mailto=firefox-esr.desktop;rsp-panel.desktop;
 application/x-shellscript=userapp-localcopy $f-8CLGX2.desktop;
 application/octet-stream=org.gnome.gedit.desktop;
+image/svg+xml=display-im6.q16.desktop;

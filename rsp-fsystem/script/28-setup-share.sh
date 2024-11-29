@@ -7,6 +7,11 @@ cd ..
 cd src
 cd usr.share
 
+
+echo Removing current breeze-dark icons theme directory...
+
+sleep 1;
+
 echo Removing current share asset...
 
 sudo rm -rf /usr/share/base-files/rsp
@@ -42,6 +47,7 @@ sudo cp -rf themes/* /usr/share/themes
 sudo cp -rf wallpapers/* /usr/share/wallpapers
 sudo cp -rf wayland-sessions/* /usr/share/wayland-sessions
 sudo cp -rf xsessions/* /usr/share/xsessions
+
 
 exit 0
 
