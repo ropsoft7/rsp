@@ -39,10 +39,11 @@ cd ..;
 
 cd rsp-libjscript
 pwd && git status;
+cd ..;
 
 cd rsp-vspaces
 pwd && git status;
-cd ..
+cd ..;
 
 # Root dir
 pwd && git status;
