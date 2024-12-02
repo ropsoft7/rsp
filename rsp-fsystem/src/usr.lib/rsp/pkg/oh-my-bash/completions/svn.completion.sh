@@ -623,7 +623,7 @@ _svn()
 	    # The first idea was to remove locally ":" from COMP_WORDBREAKS
 	    # and then put it back in all cases but in property name
 	    # completion.  It does not always work.  There is a strange bug
-	    # where one may get "svn:svn:y" in some unclear cases.
+	    # where one may get "svn:svn:xxx" in some unclear cases.
 	    #
 	    # Thus the handling is reprogrammed here...
 	    # The code assumes that property names look like *:*,
@@ -817,7 +817,7 @@ _svn()
 		    mkdir) # completion in mkdir can only be for subdirs?
 			files=$( _svn_lls dir $cur* )
 			;;
-		    log|lock|up*|cl*|switch) # mix, all but added files
+		    log|lock|up*|cl*|switch) # misc, all but added files
 			files=$( _svn_lls all $cur* )
 			;;
 		    merge) # may do a better job? URL/WCPATH

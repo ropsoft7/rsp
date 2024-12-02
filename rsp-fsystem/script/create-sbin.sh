@@ -5,7 +5,7 @@ HERE="`dirname "$WRAPPER"`"
 
 cd $HERE;
 
-if [ -z "$1" ]; thrn
+if [ -z "$1" ]; then
     echo "Usage: npm run create <script_name>"
     return 1
 fi

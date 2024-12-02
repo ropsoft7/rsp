@@ -250,7 +250,7 @@ ChangeLog for Privoxy
   Privoxy performance issues, whose root cause lies in
   web servers labelling content of unknown type as text/plain.
 - Assorted fixes for POSIX compliance, signal handling, graceful
-  termination, compiler warnings, OSX support, Win32 systeay,
+  termination, compiler warnings, OSX support, Win32 systray,
   error logging, hostname wildcards, correct detection of NetBSD.
 - Workarounds for client (iTunes etc) and server (PHP < 4.2.3) bugs
   including the notorious "blank page" problem.
@@ -322,7 +322,7 @@ ChangeLog for Privoxy
 - Multiple actions files can now be specified in config.
 - Actions files are changed to: default.action, standard.action, and 
   user.action. user.action is for personal/local configuration.
-- The usual many small and mixellaneous bug and security fixes.
+- The usual many small and miscellaneous bug and security fixes.
 
 *** Version 2.9.14 Beta *** 
 
@@ -342,7 +342,7 @@ ChangeLog for Privoxy
 
 - *NEWS*: The project has been renamed to Privoxy! The new name is 
   reflected throughout (file locations, etc).
-- ijb.action is now default.action. re_filteefile is now 
+- ijb.action is now default.action. re_filterfile is now 
   default.filter.
 - http://i.j.b/ is now http://p.p/
 - The 'logo' option for replacing ad iamges is removed now. 'Pattern' 
@@ -357,9 +357,9 @@ ChangeLog for Privoxy
   is.)
 - More CGI actions editor fixes and improvements.
 - Win32 command line fix ups.
-- re_filteefile now has modular sections that can be activated on a 
+- re_filterfile now has modular sections that can be activated on a 
   per site basis. Some new goodies there too.
-- +filter now takes arguments to match FILTER sections in re_filteefile
+- +filter now takes arguments to match FILTER sections in re_filterfile
   for even more flexibility. 
 - Added a new image blocker option: +image-blocker{pattern}, which 
   displays a checkerboard patthern and scales better than the logo.
@@ -381,7 +381,7 @@ ChangeLog for Privoxy
 - Signal handling cleanups (*nix).
 - CGI actions editor improvements and fixes.
 - Error handling improvements, especially out of memory.
-- Default re_filteefile fix that caused spurious IJB logos 
+- Default re_filterfile fix that caused spurious IJB logos 
   (instead of 'blank').
 - configure.in threading fixes for Solaris.
 - Various other minor fixes.
@@ -409,7 +409,7 @@ default.
 - junkbstr.txt is now config.txt on Win32.
 - Support for running IJB as a UNIX daemon process has improved.
 - Unix daemon now returns error code on failed start.
-- Timestamps in logfile and jaefile now.
+- Timestamps in logfile and jarfile now.
 - Fix for the Netscape bug reintroduced in 2.9.9.
 - make should now abort if gmake (GNU make) not present.
 - Many other minor bugfixes
@@ -460,7 +460,7 @@ parsers.c (again). They obviously got lost in our current
 patch war ;-)
 - Cut the credit for the §-referrer-option from the config file,
 that Stefan had placed there.
-- Improved the re_filteefile 
+- Improved the re_filterfile 
 
 
 *** Version 2.9.0 pre-Alpha Changes ***
@@ -497,8 +497,8 @@ has been moved to "jbsockets.c".  The non-system-specific code from
 connect.c and socks4.c has been movet to "gateway.c".  Also, the
 config file loader and the global variables it writes to have been
 moved to "loadcfg.c".  (Maybe this should go into loaders.c?)
-And candidate for the "worst filename ever" award is "mixutil.c",
-which contains, well, mixellaneous utility functions like zalloc.
+And candidate for the "worst filename ever" award is "miscutil.c",
+which contains, well, miscellaneous utility functions like zalloc.
 (Suggestions for a better name for this file are welcome!)
 - Loaders now use a common function to read a line and skip comments,
 and this function also stores the proxy_args.

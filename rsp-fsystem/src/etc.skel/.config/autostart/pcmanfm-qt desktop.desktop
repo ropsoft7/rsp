@@ -1,7 +1,0 @@
-[Desktop Entry]
-Exec=/usr/lib/rsp/proc/xcbPcmanDesktop
-Hidden=true
-Name=RspPcmanfmDesktop
-Type=Application
-Version=1.0
-X-RSp-Need-Tray=true

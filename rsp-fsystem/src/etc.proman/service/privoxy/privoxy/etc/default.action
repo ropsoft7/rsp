@@ -472,7 +472,7 @@
 #    URL.
 #
 # +send-vanilla-wafer
-#    This action only applies if you are using a jaefile.  It sends a
+#    This action only applies if you are using a jarfile.  It sends a
 #    cookie to every site stating that you do not accept any copyright
 #    on cookies sent to you, and asking them not to track you.  Of
 #    course, this is a (relatively) unique header they could use to 

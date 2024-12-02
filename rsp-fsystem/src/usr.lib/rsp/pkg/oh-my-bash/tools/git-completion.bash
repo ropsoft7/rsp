@@ -407,7 +407,7 @@ fi
 
 # This function is equivalent to
 #
-#    __gitcomp "$(git y --git-completion-helper) ..."
+#    __gitcomp "$(git xxx --git-completion-helper) ..."
 #
 # except that the output is cached. Accept 1-3 arguments:
 # 1: the git command to execute, this is also the cache key

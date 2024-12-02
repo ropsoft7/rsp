@@ -20,9 +20,8 @@ echo Spreading rsp lib...
 sudo cp -rf rsp/* /usr/lib/rsp
 
 sudo ln -sf /usr/lib/rsp/toggle/* /usr/local/bin
-sudo ln -sf /usr/lib/rsp/mix/* /usr/local/bin
-sudo ln -sf /usr/lib/rsp/wrapper/adduser /usr/local/sbin
-sudo ln -sf /usr/lib/rsp/wrapper/neofetch /usr/local/bin
+sudo ln -sf /usr/lib/rsp/misc/* /usr/local/bin
+
 sudo ln -sf /usr/lib/rsp/desktop/startRspDesktopWayland /usr/local/bin
 sudo ln -sf /usr/lib/rsp/desktop/archive/startRspDesktop /usr/local/bin
 

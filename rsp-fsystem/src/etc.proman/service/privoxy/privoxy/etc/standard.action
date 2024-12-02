@@ -62,7 +62,7 @@ standard.Medium
 # new options.
 #
 # CAUTION: These settings can still be subverted by a
-# mixonfigured client that executes code from untrusted
+# misconfigured client that executes code from untrusted
 # sources.
 #
 { \

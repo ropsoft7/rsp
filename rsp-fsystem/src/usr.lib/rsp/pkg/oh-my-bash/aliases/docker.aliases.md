@@ -2,11 +2,11 @@
 
 |  Alias    |  Command                      |  Description                                                                             |
 | :------   | :---------------------------- | :--------------------------------------------------------------------------------------- |
-| `dbl`     | `docker build`                | Build an image from a Dockeefile                                                         |
+| `dbl`     | `docker build`                | Build an image from a Dockerfile                                                         |
 | `dcin`    | `docker container inspect`    | Display detailed information on one or more containers                                   |
 | `dcls`    | `docker container ls`         | List all the running docker containers                                                   |
 | `dclsa`   | `docker container ls -a`      | List all running and stopped containers                                                  |
-| `dib`     | `docker image build`          | Build an image from a Dockeefile (same as docker build)                                  |
+| `dib`     | `docker image build`          | Build an image from a Dockerfile (same as docker build)                                  |
 | `dii`     | `docker image inspect`        | Display detailed information on one or more images                                       |
 | `dils`    | `docker image ls`             | List docker images                                                                       |
 | `dipu`    | `docker image push`           | Push an image or repository to a remote registry                                         |

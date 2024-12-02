@@ -1,9 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Name=chat.gpt
-Exec=/usr/bin/firefox-esr --new-window --ssb https://chatgpt.com
-Icon=/usr/share/icons/rsp/mix/chat-gpt.png
-Terminal=false
-Type=Application
-Categories=Chatgpt;Network;WebBrowser;
-

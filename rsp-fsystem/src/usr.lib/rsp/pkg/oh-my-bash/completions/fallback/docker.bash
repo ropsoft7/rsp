@@ -552,7 +552,7 @@ function __docker_complete_nodes {
 
 # __docker_services returns a list of all services. Additional options to
 # `docker service ls` may be specified in order to filter the list, e.g.
-# `__docker_services --filter name=y`
+# `__docker_services --filter name=xxx`
 # By default, only node names are returned.
 # Set DOCKER_COMPLETION_SHOW_SERVICE_IDS=yes to also complete IDs.
 # An optional first option `--id|--name` may be used to limit the
@@ -2899,10 +2899,10 @@ function _docker_image_build {
 			context="${context:-.}"
 
 			local file="$( __docker_value_of_option '--file|f' )"
-			local default_file="${context%/}/Dockeefile"
-			local dockeefile="${file:-$default_file}"
+			local default_file="${context%/}/Dockerfile"
+			local dockerfile="${file:-$default_file}"
 
-			local targets="$( sed -n 's/^FROM .\+ AS \(.\+\)/\1/p' "$dockeefile" 2>/dev/null )"
+			local targets="$( sed -n 's/^FROM .\+ AS \(.\+\)/\1/p' "$dockerfile" 2>/dev/null )"
 			COMPREPLY=( $( compgen -W "$targets" -- "$cur" ) )
 			return
 			;;

@@ -1,6 +1,0 @@
-[Desktop Entry]
-Name=@RSp Session
-Comment=Start Compify's default Desktop Session
-Exec=/usr/lib/rsp/desktop/startRspDesktopX11
-Type=Application
-Session=x11

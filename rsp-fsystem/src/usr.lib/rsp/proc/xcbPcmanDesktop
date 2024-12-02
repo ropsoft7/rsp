@@ -1,3 +1,3 @@
 #!/bin/bash
 
-/usr/local/bin/pcmanfm-qt --platform xcb --desktop;
+/usr/local/bin/rsp-panel --platform xcb --desktop;

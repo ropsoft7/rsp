@@ -61,13 +61,12 @@ export QT_PLATFORM_PLUGIN="rsp"
 export QT_QPA_PLATFORMTHEME="rsp"
 
 # Qt5
-export QT_QPA_PLATFORMTHEME="rsp"   
+export QT_QPA_PLATFORMTHEME="rsp"
 export QT_EXCLUDE_GENERIC_BEARER=1
 export QT_AUTO_SCREEN_SCALE_FACTOR=0
 
 # Qt6
 export QT_ACCESSIBILITY=1
-
 # Prevent illegibile text in some KDE apps
 export QT_QUICK_CONTROLS_STYLE="org.kde.desktop"
 
@@ -97,8 +96,19 @@ fi
 COMPIFY_EXECUTABLE=`which compify`
 
 if [ -x "$COMPIFY_EXECUTABLE" ]; then
-    "$COMPIFY_EXECUTABLE" -C "$XDG_CONFIG_HOME/compify" -S /usr/lib/rsp/desktop/startRspDesktopWaylandPost > /dev/null;
-     /usr/local/bin/rsp-sudo pkill login --platform offscreen;
+    
+    COMPIFY_VERSION=$("$COMPIFY_EXECUTABLE" --version | cut -c 7-11 | tr -d '.')
+    
+    echo "$COMPIFY_VERSION"
+    
+    if [ "$COMPIFY_VERSION" -lt "072" ]; then
+        echo "Compify version is minor than 0.7.2."
+        exec compify -C $XDG_CONFIG_HOME/compify -s /usr/lib/rsp/desktop/startRspDesktopWaylandPost;
+    else
+        echo "Compify version is  0.7.2 or higher, using -S option for exit together with /usr/lib/rsp/desktop/startRspDesktopWaylandPost"
+        exec compify -C $XDG_CONFIG_HOME/compify -S /usr/lib/rsp/desktop/startRspDesktopWaylandPost;
+    fi
+
 else
     echo "compify not found. Please install compify. Exiting."
 fi

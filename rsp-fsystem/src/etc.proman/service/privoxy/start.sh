@@ -5,6 +5,6 @@ HERE="`dirname "$WRAPPER"`"
 
 cd $HERE;
 
-sudo ./privoxy/sbin/privoxy --no-daemon ./privoxy/etc/config-psiphon
+sudo ./privoxy/sbin/privoxy --no-daemon ./privoxy/etc/config
 
 exit 0

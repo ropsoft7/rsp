@@ -1183,7 +1183,7 @@ s@^X-Privoxy-Control:.*@@i
 #     Fix for feature Req #495374: http-equiv problem
 #
 #     Revision 1.14  2001/12/09 18:55:11  david__schmidt
-#     Updated CODE_STATUS to beta, commented out microsuck line in re_filteefile
+#     Updated CODE_STATUS to beta, commented out microsuck line in re_filterfile
 #     for 2.9.10 beta
 #
 #     Revision 1.13  2001/10/13 13:11:20  joergs

@@ -31,7 +31,7 @@ echo Running setup-share in order to setup updates on grub splash screen...
 
     sleep 3
 
-echo Ensuring removal of "/etc/default/grub.d"
+echo Ensuring removel of "/etc/default/grub.d"
 
     sudo rm -rf /etc/default/grub.d
 

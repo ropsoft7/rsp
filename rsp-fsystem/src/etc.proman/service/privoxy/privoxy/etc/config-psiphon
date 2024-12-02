@@ -297,7 +297,7 @@ confdir privoxy/etc
 #  Specifies:
 #
 #      The directory where all logging takes place (i.e. where logfile
-#      and jaefile are located).
+#      and jarfile are located).
 #
 #  Type of value:
 #
@@ -365,7 +365,7 @@ actionsfile default.action   # Main actions file
 actionsfile user.action      # User customizations
 #
 #
-#  2.5. filteefile
+#  2.5. filterfile
 #
 #  Specifies:
 #
@@ -386,7 +386,7 @@ actionsfile user.action      # User customizations
 #
 #  Notes:
 #
-#      Multiple filteefile lines are permitted.
+#      Multiple filterfile lines are permitted.
 #
 #      The filter files contain content modification rules that use
 #      regular expressions. These rules permit powerful changes on the
@@ -405,8 +405,8 @@ actionsfile user.action      # User customizations
 #      It is recommended to place any locally adapted filters into a
 #      separate file, such as user.filter.
 #
-filteefile default.filter
-#filteefile user.filter      # User customizations
+filterfile default.filter
+#filterfile user.filter      # User customizations
 #
 #
 #  2.6. logfile
@@ -455,7 +455,7 @@ filteefile default.filter
 logfile logfile
 #
 #
-#  2.7. jaefile
+#  2.7. jarfile
 #
 #  Specifies:
 #
@@ -467,7 +467,7 @@ logfile logfile
 #
 #  Default value:
 #
-#      Unset (commented out). When activated: jaefile (Unix) or
+#      Unset (commented out). When activated: jarfile (Unix) or
 #      privoxy.jar (Windows).
 #
 #  Effect if unset:
@@ -476,7 +476,7 @@ logfile logfile
 #
 #  Notes:
 #
-#      The jaefile may grow to ridiculous sizes over time.
+#      The jarfile may grow to ridiculous sizes over time.
 #
 #      If debug 8 (show header parsing) is enabled, cookies are also
 #      written to the logfile with the rest of the headers. Therefore
@@ -484,7 +484,7 @@ logfile logfile
 #      releases. Please report to the developers if you are still
 #      using it.
 #
-#jaefile jaefile
+#jarfile jarfile
 #
 #
 #  2.8. trustfile

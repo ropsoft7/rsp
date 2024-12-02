@@ -19,7 +19,7 @@ See the respective pages for details.
 - [`docker`](docker.aliases.md)
 - [`general`](general.aliases.md)
 - `ls`
-- `mix`
+- `misc`
 - [`package-manager`](package-manager.aliases.md)
 - [`terraform`](terraform.aliases.md)
 - [`cargo`](cargo.aliases.md)

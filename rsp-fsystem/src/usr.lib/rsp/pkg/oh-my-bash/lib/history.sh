@@ -93,10 +93,10 @@ bind '"\e[D": backward-char'
 
 # Show history
 case $HIST_STAMPS in
-  "[mm/dd/yy]") HISTTIMEFORMAT=$'\033[31m[%m/%d/%Y] \033[36m[%T]\033[0m ' ;;
-  "[dd.mm.yy]") HISTTIMEFORMAT=$'\033[31m[%d.%m.%Y] \033[36m[%T]\033[0m ' ;;
-  "[yy-mm-dd]") HISTTIMEFORMAT=$'\033[31m[%F] \033[36m[%T]\033[0m ' ;;
-  "mm/dd/yy") HISTTIMEFORMAT='%m/%d/%Y %T ' ;;
-  "dd.mm.yy") HISTTIMEFORMAT='%d.%m.%Y %T ' ;;
-  "yy-mm-dd"|*) HISTTIMEFORMAT='%F %T ' ;;
+  "[mm/dd/yyyy]") HISTTIMEFORMAT=$'\033[31m[%m/%d/%Y] \033[36m[%T]\033[0m ' ;;
+  "[dd.mm.yyyy]") HISTTIMEFORMAT=$'\033[31m[%d.%m.%Y] \033[36m[%T]\033[0m ' ;;
+  "[yyyy-mm-dd]") HISTTIMEFORMAT=$'\033[31m[%F] \033[36m[%T]\033[0m ' ;;
+  "mm/dd/yyyy") HISTTIMEFORMAT='%m/%d/%Y %T ' ;;
+  "dd.mm.yyyy") HISTTIMEFORMAT='%d.%m.%Y %T ' ;;
+  "yyyy-mm-dd"|*) HISTTIMEFORMAT='%F %T ' ;;
 esac
